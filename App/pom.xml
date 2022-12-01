@@ -59,12 +59,12 @@
             <version>3.9</version>
         </dependency>
 
-        <!--分页-->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.2.13</version>
-        </dependency>
+<!--        &lt;!&ndash;分页&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.github.pagehelper</groupId>-->
+<!--            <artifactId>pagehelper-spring-boot-starter</artifactId>-->
+<!--            <version>1.2.13</version>-->
+<!--        </dependency>-->
 
         <!--处理json数据-->
         <dependency>
@@ -72,6 +72,14 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.54</version>
         </dependency>
+
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -5,9 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0693ab41-aa7f-4c49-ae66-60de2471c93d" name="变更" comment="后端">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App/src/main/java/com/app/domain/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_5_1_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_spring_boot_autoconfigure_1_2_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_spring_boot_starter_1_2_13.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/app/AppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/app/AppApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/app/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/app/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/src/main/java/com/app/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/app/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/test/java/com/app/AppApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/test/java/com/app/AppApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +46,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -134,7 +145,7 @@
       <workItem from="1669888354557" duration="1234000" />
       <workItem from="1669890230005" duration="1279000" />
       <workItem from="1669891539557" duration="537000" />
-      <workItem from="1669895193372" duration="2370000" />
+      <workItem from="1669895193372" duration="4214000" />
     </task>
     <task id="LOCAL-00001" summary="后端">
       <created>1669881863888</created>
@@ -199,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669898721672</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="后端">
+      <created>1669899206115</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669899206115</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
