@@ -11,8 +11,8 @@
     <groupId>com.example</groupId>
     <artifactId>BackEnd</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>BackEnd</name>
-    <description>BackEnd</description>
+    <name>App</name>
+    <description>App</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -36,6 +36,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <!--        TODO 添加依赖坐标-->
+        <!--        druid是一种数据库连接池-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.16</version>
         </dependency>
     </dependencies>
 
