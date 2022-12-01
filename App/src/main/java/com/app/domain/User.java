@@ -1,6 +1,10 @@
 package com.app.domain;
 
+
 public class User {
+    /**
+     * uid 用户标识符
+     */
     private Integer uid;
     private String account;
     private String password;
