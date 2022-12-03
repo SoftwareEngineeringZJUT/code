@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -65,11 +67,27 @@ public class User {
 
     /**
      * 创建时间
+     * 构造的时候传入一个new Date()即可
      */
-    private String gmt_create;
+    private Date gmt_create;
 
     /**
      * 更新时间
      */
-    private String gmt_update;
+    private Date gmt_update ;
+
+    public User(String account, String password, String real_name, String id_card, String address, String bank_card, String phone, String user_status, Integer balance, String label) {
+        this.account = account;
+        this.password = password;
+        this.real_name = real_name;
+        this.id_card = id_card;
+        this.address = address;
+        this.bank_card = bank_card;
+        this.phone = phone;
+        this.user_status = user_status;
+        this.balance = balance;
+        this.label = label;
+        this.gmt_create = new Date();
+        this.gmt_update = new Date();
+    }
 }

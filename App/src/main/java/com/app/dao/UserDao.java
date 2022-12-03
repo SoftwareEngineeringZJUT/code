@@ -28,8 +28,8 @@ public interface UserDao {
     User getUidByAccout(String account);
 
     // 插入新账户
-    @Insert("insert into user(uid,account,password,real_name,id_card,address,bank_card,phone,user_status,balance,label)\n" +
-            "values(NULL, #{account}, #{password}, #{real_name}, #{id_card}, #{address}, #{bank_card}, #{phone},#{user_status}, 0, #{label})")
+    @Insert("insert into user(uid,account,password,real_name,id_card,address,bank_card,phone,user_status,balance,label,gmt_create,gmt_update)" +
+            "values(NULL, #{account}, #{password}, #{real_name}, #{id_card}, #{address}, #{bank_card}, #{phone},#{user_status}, 0, #{label},#{gmt_create},#{gmt_update})")
     void insertUser(User user);
 
     //根据用户的uid修改一个用户（user）的密码

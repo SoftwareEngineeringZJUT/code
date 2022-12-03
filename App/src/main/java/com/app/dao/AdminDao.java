@@ -12,7 +12,7 @@ public interface AdminDao {
     List<Admin> getAll();
 
     //插入新的admin
-    @Insert("insert into admin(admin_id,account,password,real_name,rank) values(NULL,#{account},#{password},#{real_name},#{rank});")
+    @Insert("insert into admin(admin_id,account,password,real_name,rank,gmt_create,gmt_update) values(NULL,#{account},#{password},#{real_name},#{rank}.#{gmt_create},#{gmt_update});")
     void insertAdmin(Admin admin);
 
     //根据账户account获取密码password
