@@ -11,7 +11,7 @@ class AppApplicationTests {
     private UserDao userDao;
     @Test
     void contextLoads() {
-        System.out.println(userDao.getUserByAccount("ababa"));
+        System.out.println(userDao.getUserByUid(21));
     }
 
 }
