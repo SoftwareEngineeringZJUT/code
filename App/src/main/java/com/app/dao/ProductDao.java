@@ -1,10 +1,7 @@
 package com.app.dao;
 
 import com.app.domain.Product;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -34,6 +31,16 @@ public interface ProductDao {
     //根据商品id修改商品基础信息，包括商品名称、商品期限、年转化率、起存金额、递增金额、每人限额
     // 、每日限额、产品库存、风险等级、结息方式、是否上线、商品说明
     @Update("update product set name = #{name} , expire = #{expire} , annual_rate = #{annual_rate} ,start_deposit = #{start_deposit} , " +
-    "increment =  #{increment} , ")
+    "increment =  #{increment} , personal_limit = #{personal_limit} ,daily_limit = #{daily_limit} , stock = #{stock , risk = #{risk} , " +
+    "settlement_type = #{settlement_type} , onsale = #{onsale} , description = #{description}")
+    void UpdateProductInfo(Product product);
+
+    //根据商品id修改商品原子服务流程
+    @Update("update product set service_process=#{service_process} where product_id=#{product_id}")
+    void UpdateProcessById(String product_id , String service_process);
+
+    //根据商品id删除一条记录
+    @Delete("delete from product where product_id=#{product_id}")
+    void DeleteById(String product_id);
 
 }

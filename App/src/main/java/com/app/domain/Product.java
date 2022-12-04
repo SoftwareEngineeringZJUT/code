@@ -31,6 +31,9 @@ public class Product {
     //递增金额
     private double increment;
 
+    //每人限额
+    private double personal_limit;
+
     //每日限购
     private double daily_limit;
 
@@ -55,13 +58,14 @@ public class Product {
     private Date gmt_create;
     private Date gmt_update;
 
-    public Product(String name, Integer publisher, Date expire, float annual_rate, double start_deposit, double increment, double daily_limit, double stock, int risk, String settlement_type, int onsale, String description, String service_process) {
+    public Product(String name, Integer publisher, Date expire, float annual_rate, double start_deposit, double increment,double personal_limit, double daily_limit, double stock, int risk, String settlement_type, int onsale, String description, String service_process) {
         this.name = name;
         this.publisher = publisher;
         this.expire = expire;
         this.annual_rate = annual_rate;
         this.start_deposit = start_deposit;
         this.increment = increment;
+        this.personal_limit = personal_limit;
         this.daily_limit = daily_limit;
         this.stock = stock;
         this.risk = risk;
