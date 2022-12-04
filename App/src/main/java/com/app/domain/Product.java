@@ -20,7 +20,7 @@ public class Product {
     private Integer publisher;
 
     //商品期限
-    private String expire;
+    private Date expire;
 
     //年转化率
     private float annual_rate;
@@ -55,7 +55,7 @@ public class Product {
     private Date gmt_create;
     private Date gmt_update;
 
-    public Product(String name, Integer publisher, String expire, float annual_rate, double start_deposit, double increment, double daily_limit, double stock, int risk, String settlement_type, int onsale, String description, String service_process) {
+    public Product(String name, Integer publisher, Date expire, float annual_rate, double start_deposit, double increment, double daily_limit, double stock, int risk, String settlement_type, int onsale, String description, String service_process) {
         this.name = name;
         this.publisher = publisher;
         this.expire = expire;
