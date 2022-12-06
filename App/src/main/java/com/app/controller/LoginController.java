@@ -2,9 +2,12 @@ package com.app.controller;
 
 import com.app.core.util.Result;
 import com.app.core.util.ResultUtil;
+import com.app.dao.AdminDao;
 import com.app.dao.UserDao;
+import com.app.domain.Admin;
 import com.app.domain.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,7 +21,8 @@ public class LoginController {
 
     @Resource
     private UserDao userDao;
-
+    @Resource
+    private  AdminDao adminDao;
 
     /**
      *
@@ -29,18 +33,43 @@ public class LoginController {
      */
 
     @ResponseBody
-    @PostMapping
-    public Result<User> userLogin(User _user , HttpServletRequest request) throws Exception{
+    @PostMapping("/userLogin")
+    public String userLogin(User _user , HttpServletRequest request , Model model) throws Exception{
         User user = userDao.getUserByAccount(_user.getAccount());
+
+        if(user == null) return "index";
 
         if(user.getAccount().equals(_user.getAccount()) &&
            user.getPassword().equals(_user.getPassword()) ){
 
-            request.getSession().setAttribute("real_name" , user.getReal_name());
+            request.getSession().setAttribute("identity" , "user");
+            request.getSession().setAttribute("user" , user);
 
-            return ResultUtil.SUCCESS();
+            return "index";
         } else{
-          return ResultUtil.Error400("用户名或密码错误");
+            model.addAttribute("account" , _user.getAccount());
+            model.addAttribute("passwd" , _user.getPassword());
+            return "index";
         }
     }
+
+    @PostMapping("/adminLogin")
+    public String adminLogin(Admin _admin , HttpServletRequest request , Model model) throws Exception{
+        Admin admin = adminDao.getAdminByAccount(_admin.getAccount());
+
+        if(admin == null) return "index";
+
+        if(admin.getAccount().equals(_admin.getAccount()) &&
+                admin.getPassword().equals(_admin.getPassword()) ){
+
+            request.getSession().setAttribute("identity" , "admin");
+            request.getSession().setAttribute("user" , admin);
+
+            return "index";
+        } else{
+            return "index";
+        }
+    }
+
+
 }

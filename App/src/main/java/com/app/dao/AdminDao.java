@@ -11,6 +11,9 @@ public interface AdminDao {
     @Select("select * from admin")
     List<Admin> getAll();
 
+    @Select("select * from admin where account = #{account}")
+    Admin getAdminByAccount(String account);
+
     //插入新的admin
     @Insert("insert into admin(admin_id,account,password,real_name,rank,gmt_create,gmt_update) values(NULL,#{account},#{password},#{real_name},#{rank}.#{gmt_create},#{gmt_update});")
     void insertAdmin(Admin admin);
