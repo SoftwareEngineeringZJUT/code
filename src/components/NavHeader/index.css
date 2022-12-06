@@ -1,0 +1,21 @@
+.header {
+    transition: all 0.5s ease-out 0s;
+    background-color: #fff !important;
+    /* height: 100px; */
+    box-shadow: 0px 1px 5px #e2e4e6;
+    justify-content: center;
+    padding-inline: 100px !important;
+}
+
+.headBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 64px;
+    height: 64px;
+}
+
+.titleImage {
+    width: 233px;
+    height: 40px;
+}

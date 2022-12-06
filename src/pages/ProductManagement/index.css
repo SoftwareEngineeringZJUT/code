@@ -1,0 +1,21 @@
+.productBox {
+    height: 150px;
+    width: 250px;
+    border-radius: 15px;
+    background-color: red;
+    margin: 20px
+}
+
+.PMbox {
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.productCard {
+    width: 300px;
+    height: 180px;
+    margin: 20px;
+}
