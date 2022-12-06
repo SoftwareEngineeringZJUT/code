@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -32,12 +33,14 @@ public class LoginController {
      * @throws Exception
      */
 
-    @ResponseBody
+//    @ResponseBody
     @PostMapping("/userLogin")
     public String userLogin(User _user , HttpServletRequest request , Model model) throws Exception{
         User user = userDao.getUserByAccount(_user.getAccount());
 
         if(user == null) return "index";
+
+        System.out.println(user);
 
         if(user.getAccount().equals(_user.getAccount()) &&
            user.getPassword().equals(_user.getPassword()) ){
@@ -45,10 +48,15 @@ public class LoginController {
             request.getSession().setAttribute("identity" , "user");
             request.getSession().setAttribute("user" , user);
 
+            model.addAttribute("account" , "testss");
+            model.addAttribute("password" , "testssssx");
+
+            System.out.println("ok");
+
             return "index";
         } else{
-            model.addAttribute("account" , _user.getAccount());
-            model.addAttribute("passwd" , _user.getPassword());
+
+
             return "index";
         }
     }

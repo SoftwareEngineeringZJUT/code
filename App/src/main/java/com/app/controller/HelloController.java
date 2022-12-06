@@ -8,7 +8,7 @@ public class HelloController {
 
     @RequestMapping("/")
     public String hello(){
-        return "forward:index.html";
+        return "index.html";
     }
 
 }
