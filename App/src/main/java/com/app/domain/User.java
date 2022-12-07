@@ -81,13 +81,13 @@ public class User {
      * 创建时间
      * 构造的时候传入一个new Date()即可
      */
-    @JSONField(ordinal = 12 , format="yyyy-MM-dd")
+    @JSONField(ordinal = 12 , format="yyyy-MM-dd HH:mm:ss.SSS")
     private Date gmt_create;
 
     /**
      * 更新时间
      */
-    @JSONField(ordinal = 13 , format="yyyy-MM-dd")
+    @JSONField(ordinal = 13 , format="yyyy-MM-dd HH:mm:ss.SSS")
     private Date gmt_update ;
 
     public User(String account, String password, String real_name, String id_card, String address, String bank_card, String phone, String user_status, Integer balance, String label) {

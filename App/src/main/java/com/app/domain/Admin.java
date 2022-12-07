@@ -45,13 +45,13 @@ public class Admin {
     /**
      *  创建时间
      */
-    @JSONField(ordinal = 6)
+    @JSONField(ordinal = 6 , format = "yyyy-MM-dd HH:mm:ss.SSS")
     private Date gmt_create;
 
     /**
      *  更新时间
      */
-    @JSONField(ordinal = 7)
+    @JSONField(ordinal = 7 , format = "yyyy-MM-dd HH:mm:ss.SSS")
     private Date gmt_update;
 
     public Admin(String account, String password, String real_name, Integer rank) {

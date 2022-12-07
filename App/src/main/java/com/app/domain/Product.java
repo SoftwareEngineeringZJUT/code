@@ -104,13 +104,13 @@ public class Product {
     /**
      * 创建时间
      */
-    @JSONField(ordinal = 16 , format="yyyy-MM-dd")
+    @JSONField(ordinal = 16 , format="yyyy-MM-dd HH:mm:ss.SSS")
     private Date gmt_create;
 
     /**
      * 更新时间
      */
-    @JSONField(ordinal = 17 , format="yyyy-MM-dd")
+    @JSONField(ordinal = 17 , format="yyyy-MM-dd HH:mm:ss.SSS")
     private Date gmt_update;
 
     public Product(String name, Integer publisher, Date expire, float annual_rate, double start_deposit, double increment,double personal_limit, double daily_limit, double stock, int risk, String settlement_type, int onsale, String description, String service_process) {
