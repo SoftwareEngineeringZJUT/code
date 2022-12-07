@@ -56,7 +56,6 @@ public class LoginController {
             return "index";
         } else{
 
-
             return "index";
         }
     }

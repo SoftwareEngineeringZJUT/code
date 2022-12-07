@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : student
+ Source Server         : mysql
  Source Server Type    : MySQL
- Source Server Version : 80028
+ Source Server Version : 80031
  Source Host           : localhost:3306
  Source Schema         : softwaredb
 
  Target Server Type    : MySQL
- Target Server Version : 80028
+ Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 01/12/2022 17:14:19
+ Date: 07/12/2022 10:58:26
 */
 
 SET NAMES utf8mb4;
@@ -31,7 +31,7 @@ CREATE TABLE `admin`  (
   `gmt_update` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`admin_id`) USING BTREE,
   UNIQUE INDEX `ad`(`account`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理员' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理员' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin
@@ -54,7 +54,7 @@ DROP TABLE IF EXISTS `blacklist`;
 CREATE TABLE `blacklist`  (
   `uid` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户名',
   PRIMARY KEY (`uid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '黑名单' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '黑名单' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of blacklist
@@ -81,7 +81,7 @@ CREATE TABLE `order`  (
   INDEX `product`(`67`) USING BTREE,
   CONSTRAINT `id` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `product` FOREIGN KEY (`67`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 221018021 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '订单表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 221018020 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '订单表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of order
@@ -132,7 +132,7 @@ CREATE TABLE `product`  (
   PRIMARY KEY (`product_id`) USING BTREE,
   INDEX `pub`(`publisher`) USING BTREE,
   CONSTRAINT `pub` FOREIGN KEY (`publisher`) REFERENCES `admin` (`admin_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '产品表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '产品表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of product
@@ -161,7 +161,7 @@ CREATE TABLE `user`  (
   `gmt_update` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`uid`) USING BTREE,
   UNIQUE INDEX `acc`(`account`) USING BTREE COMMENT '唯一'
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户表信息' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户表信息' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
@@ -194,7 +194,7 @@ DROP TABLE IF EXISTS `whitelist`;
 CREATE TABLE `whitelist`  (
   `uid` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户名',
   PRIMARY KEY (`uid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '白名单' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '白名单' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of whitelist
