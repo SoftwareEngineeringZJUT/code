@@ -36,6 +36,7 @@ public class LoginController {
 //    @ResponseBody
     @PostMapping("/userLogin")
     public String userLogin(User _user , HttpServletRequest request , Model model) throws Exception{
+
         User user = userDao.getUserByAccount(_user.getAccount());
 
         if(user == null) return "index";
