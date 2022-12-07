@@ -1,7 +1,7 @@
 package com.app.controller;
 
-import com.app.core.util.Result;
-import com.app.core.util.ResultUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.app.dao.AdminDao;
 import com.app.dao.UserDao;
 import com.app.domain.Admin;
@@ -11,10 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+
+import static com.app.core.util.MyJSONUtil.addKeyValue;
 
 @Controller
 @RequestMapping("/login")
@@ -28,54 +29,66 @@ public class LoginController {
     /**
      *
      * @param _user 用户
-     * @param request
-     * @return
-     * @throws Exception
+     * @return jsonOutput
      */
 
-//    @ResponseBody
+    @ResponseBody
     @PostMapping("/userLogin")
-    public String userLogin(User _user , HttpServletRequest request , Model model) throws Exception{
+    public String userLogin(User _user){
 
+        String jsonOutput = "{}";
         User user = userDao.getUserByAccount(_user.getAccount());
 
-        if(user == null) return "index";
+        // 用户不存在
+        if(user == null){
+            jsonOutput = addKeyValue(jsonOutput , "status" , "NOT_FOUND");
+            return jsonOutput;
+        }
 
-        System.out.println(user);
-
+        // 信息正确
         if(user.getAccount().equals(_user.getAccount()) &&
            user.getPassword().equals(_user.getPassword()) ){
+            jsonOutput = JSON.toJSONString(user , SerializerFeature.WriteMapNullValue);
+            jsonOutput = addKeyValue(jsonOutput , "status" , "APPROVED");
+            return jsonOutput;
 
-            request.getSession().setAttribute("identity" , "user");
-            request.getSession().setAttribute("user" , user);
-
-            model.addAttribute("account" , "testss");
-            model.addAttribute("password" , "testssssx");
-
-            System.out.println("ok");
-
-            return "index";
-        } else{
-
-            return "index";
+        }
+        // 信息错误
+        else{
+            jsonOutput = addKeyValue(jsonOutput , "status" , "INFO_ERR");
+            return jsonOutput;
         }
     }
 
+    /**
+     *
+     * @param _admin
+     * @return jsonOutput
+     */
+    @ResponseBody
     @PostMapping("/adminLogin")
-    public String adminLogin(Admin _admin , HttpServletRequest request , Model model) throws Exception{
+    public String adminLogin(Admin _admin){
+        String jsonOutput = "{}";
         Admin admin = adminDao.getAdminByAccount(_admin.getAccount());
 
-        if(admin == null) return "index";
+        // 用户不存在
+        if(admin == null){
+            jsonOutput = addKeyValue(jsonOutput , "status" , "NOT_FOUND");
+            return jsonOutput;
+        }
 
+        // 信息正确
         if(admin.getAccount().equals(_admin.getAccount()) &&
                 admin.getPassword().equals(_admin.getPassword()) ){
+            jsonOutput = JSON.toJSONString(admin , SerializerFeature.WriteMapNullValue);
+            jsonOutput = addKeyValue(jsonOutput , "status" , "APPROVED");
+            return jsonOutput;
 
-            request.getSession().setAttribute("identity" , "admin");
-            request.getSession().setAttribute("user" , admin);
-
-            return "index";
-        } else{
-            return "index";
+        }
+        // 信息错误
+        else{
+            jsonOutput = addKeyValue(jsonOutput , "status" , "INFO_ERR");
+            return jsonOutput;
         }
     }
 

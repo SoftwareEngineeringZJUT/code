@@ -44,19 +44,19 @@ public class Order {
     /**
      *  支付时间
      */
-    @JSONField(ordinal = 6 , format="yyyy-MM-dd")
+    @JSONField(ordinal = 6 , format="yyyy-MM-dd HH:mm:ss.SSS")
     private Date pay_time;
 
     /**
      * 创建时间
      */
-    @JSONField(ordinal = 7 , format="yyyy-MM-dd")
+    @JSONField(ordinal = 7 , format="yyyy-MM-dd HH:mm:ss.SSS")
     private Date gmt_create;
 
     /**
      * 更新时间
      */
-    @JSONField(ordinal = 8 , format="yyyy-MM-dd")
+    @JSONField(ordinal = 8 , format="yyyy-MM-dd HH:mm:ss.SSS")
     private Date gmt_update;
 
     public Order(Integer priduct_id, Integer user_id, double amount, int state, Date pay_time) {

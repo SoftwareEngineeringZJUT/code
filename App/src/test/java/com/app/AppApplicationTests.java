@@ -1,5 +1,7 @@
 package com.app;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.app.dao.ProductDao;
 import com.app.domain.User;
 import org.junit.jupiter.api.Test;
@@ -20,9 +22,23 @@ class AppApplicationTests {
     @Test
     void contextLoads() {
         user = new User("qwe","qwe","qwe","qwe","qwe","qwe","qwe","qwe",0,"qwe");
-        userDao.insertUser(user);
-        System.out.println(userDao.getUserByUid(21));
-        System.out.println(productDao);
+
+        String objectString = JSON.toJSONString(user);
+
+        JSONObject jsonObject = JSON.parseObject(objectString);
+
+        jsonObject.put("valid" , "ok");
+
+        objectString = JSON.toJSONString(jsonObject);
+
+        System.out.println(objectString);
+
+        user.setAccount("???");
+        User outuser = userDao.getUserByAccount(user.getAccount());
+
+        System.out.println(outuser);
+        System.out.println((outuser == null));
+
     }
 
 }
