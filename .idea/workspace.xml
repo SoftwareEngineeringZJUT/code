@@ -4,11 +4,261 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0693ab41-aa7f-4c49-ae66-60de2471c93d" name="变更" comment="后端">
-      <change afterPath="$PROJECT_DIR$/App/src/main/java/com/app/dao/AdminDao.java" afterDir="false" />
+    <list default="true" id="0693ab41-aa7f-4c49-ae66-60de2471c93d" name="变更" comment="登录接口">
+      <change afterPath="$PROJECT_DIR$/App/src/main/java/com/app/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App/src/main/java/com/app/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App/src/main/java/com/app/controller/SignInController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App/src/main/java/com/app/core/util/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_7_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_4_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_15_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_15_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_6_RELEASE.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/app/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/app/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/app/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/app/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/app/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/app/dao/ProductDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/src/test/java/com/app/AppApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/test/java/com/app/AppApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/App-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/App-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/App/target/classes/com/app/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/dao/ProductDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/App/target/classes/com/app/dao/ProductDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/css/bootstrap-datetimepicker.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/css/bootstrap-datetimepicker.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/css/bootstrap-theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/css/bootstrap-theme.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/css/bootstrap-theme.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/bootstrap-datetimepicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/bootstrap-datetimepicker.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.ar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.az.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.bg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.bn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.cs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.da.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.de.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.ee.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.el.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.es.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.fi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.fr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.he.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.hr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.hu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.hy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.id.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.is.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.it.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.ja.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.ka.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.ko.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.lt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.lv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.ms.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.nb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.nl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.no.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.pl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.pt-BR.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.pt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.ro.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.rs-latin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.rs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.ru.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.sk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.sl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.sv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.sw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.th.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.tr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.ua.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.uk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.zh-CN.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/locales/bootstrap-datetimepicker.zh-TW.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/bootstrap/js/npm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/img/user.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/404.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/H-ui.admin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/H-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/Hui-iconfont/1.0.8/demo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/Hui-iconfont/1.0.8/iconfont.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/Hui-iconfont/1.0.8/iconfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/Hui-iconfont/1.0.8/iconfont.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/Hui-iconfont/1.0.8/iconfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/Hui-iconfont/1.0.8/iconfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/Hui-iconfont/1.0.8/iconfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/admin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/amazeui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/full.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/global.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/iconfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/iconfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/iconfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/iconfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/404-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/404.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/avatar/0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/avatar/00.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/avatar/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/avatar/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/avatar/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/avatar/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/avatar/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/avatar/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/avatar/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/avatar/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/avatar/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/avatar/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/avatar/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/avatar/default.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/fly.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/fork.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/layim.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/logo-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/other/1437100018023.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/other/study-a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/images/pay.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/css/layui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/css/layui.mobile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/css/modules/code.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/css/modules/laydate/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/css/modules/laydate/laydate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/css/modules/layer/default/icon-ext.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/css/modules/layer/default/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/css/modules/layer/default/layer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/css/modules/layer/default/loading-0.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/css/modules/layer/default/loading-1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/css/modules/layer/default/loading-2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/font/iconfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/font/iconfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/font/iconfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/font/iconfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/0.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/10.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/11.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/12.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/13.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/14.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/15.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/16.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/17.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/18.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/19.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/20.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/21.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/22.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/23.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/24.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/25.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/26.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/27.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/28.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/29.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/30.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/31.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/32.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/33.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/34.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/35.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/36.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/37.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/38.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/39.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/4.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/40.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/41.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/42.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/43.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/44.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/45.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/46.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/47.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/48.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/49.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/5.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/50.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/51.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/52.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/53.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/54.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/55.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/56.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/57.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/58.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/59.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/6.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/60.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/61.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/62.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/63.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/64.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/65.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/66.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/67.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/68.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/69.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/7.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/70.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/71.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/8.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/images/face/9.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/dest/layui.all.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/modules/code.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/modules/element.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/modules/flow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/modules/form.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/modules/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/modules/laydate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/modules/layedit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/modules/layer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/modules/laypage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/modules/laytpl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/modules/mobile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/modules/tree.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/modules/upload.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/lay/modules/util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/layui/layui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/mods/face.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/mods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/mods/jie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/static/res/mods/user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/surefire-reports/TEST-com.app.AppApplicationTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/surefire-reports/com.app.AppApplicationTests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/test-classes/com/app/AppApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/App/target/test-classes/com/app/AppApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,13 +268,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/App/src/main/java/com/app/core/util/Utils.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/App/src/main/java/com/app/controller/AdminController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/App/src/main/java/com/app/controller/SignInController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/App/src/main/java/com/app/controller/LoginController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -35,19 +291,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "项目",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "spring.configuration.checksum": "ac863f346e618f9a959b5c95d5d28941"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -55,7 +310,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AppApplicationTests">
+  <component name="RunManager" selected="Spring Boot.AppApplication">
     <configuration name="AppApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="App" />
       <extension name="coverage">
@@ -139,6 +394,8 @@
       <workItem from="1669891539557" duration="537000" />
       <workItem from="1669895193372" duration="4214000" />
       <workItem from="1670045673688" duration="2273000" />
+      <workItem from="1670508549813" duration="6085000" />
+      <workItem from="1670556226646" duration="2530000" />
     </task>
     <task id="LOCAL-00001" summary="后端">
       <created>1669881863888</created>
@@ -210,7 +467,28 @@
       <option name="project" value="LOCAL" />
       <updated>1669899206115</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="变更">
+      <created>1670383484015</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670383484015</updated>
+    </task>
+    <task id="LOCAL-00012" summary="domain加上JSONField注解">
+      <created>1670424487480</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670424487480</updated>
+    </task>
+    <task id="LOCAL-00013" summary="后端">
+      <created>1670427268092</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1670427268093</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,10 +516,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="数据库文件" />
-    <MESSAGE value="后端" />
-    <option name="LAST_COMMIT_MESSAGE" value="后端" />
+    <MESSAGE value="变更" />
+    <MESSAGE value="domain加上JSONField注解" />
+    <MESSAGE value="登录接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="登录接口" />
   </component>
 </project>

@@ -7,13 +7,11 @@ import com.app.dao.UserDao;
 import com.app.domain.Admin;
 import com.app.domain.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 import static com.app.core.util.MyJSONUtil.addKeyValue;
 
@@ -27,7 +25,6 @@ public class LoginController {
     private  AdminDao adminDao;
 
     /**
-     *
      * @param _user 用户
      * @return jsonOutput
      */
@@ -61,7 +58,6 @@ public class LoginController {
     }
 
     /**
-     *
      * @param _admin
      * @return jsonOutput
      */
