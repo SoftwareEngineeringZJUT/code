@@ -11,19 +11,19 @@ const { Content } = Layout;
 
 function PageBox() {
     return (
-        <Layout>
+        <>
             <NavHeader />
             <Content className='content'>
                 <div className='contentBox'>
                     <Routes>
                         <Route path='/home' element={<Home />}></Route>
-                        <Route path='/ProductManagement' element={<ProductManagement/>}></Route>
-                        <Route path='/ProductConfiguration' element={<ProductConfiguration/>}></Route>
-                        <Route path='/*' element={<NotFound/>}/>
+                        <Route path='/ProductManagement' element={<ProductManagement />}></Route>
+                        <Route path='/ProductConfiguration' element={<ProductConfiguration />}></Route>
+                        <Route path='/*' element={<NotFound />} />
                     </Routes>
                 </div>
             </Content>
-        </Layout>
+        </>
     )
 }
 

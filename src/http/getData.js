@@ -3,7 +3,7 @@ import axios from "axios"
 const getData = async (url,params)=>{
     let res
     try {
-        res = await  axios.get(url,{
+        res = await axios.post(url,{},{
             params
         })
     } catch (error) {

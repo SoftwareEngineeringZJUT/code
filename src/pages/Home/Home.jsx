@@ -1,15 +1,42 @@
 import React from 'react'
-import { Carousel } from 'antd';
-import DemoChart from '../../components/DemoChart/DemoChart';
+import { Carousel, message } from 'antd';
 import './index.css';
 import lunbo1 from '../../assets/lunbo1.jpg'
 import lunbo2 from '../../assets/lunbo2.jpg'
 import lunbo3 from '../../assets/lunbo3.jpg'
 import lunbo4 from '../../assets/lunbo4.jpg'
+import { useEffect } from 'react';
+import {useDispatch} from 'react-redux';
+import store from '../../store';
+import { LoginAction } from '../../store/actions/LoginAction';
 
 function Home() {
+
+    const dispatch = useDispatch()
+    const {count} = store.getState().LoginReducer
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
+
+    function login() {
+        dispatch(LoginAction('login'))
+    }
+    const success = (name) => {
+        message.success(`welcome ${name}`)
+    };
+   
+    
+
+    useEffect(()=>{
+        if(count === 1){
+            console.log(userInfo)
+            success(userInfo.real_name)
+            login()
+        }
+    },[])
+
     return (
-        <div style={{width:'100%'}}>
+
+        <>
+            <div style={{ width: '100%' }}>
                 <Carousel style={{ marginBottom: '100px' }} autoplay>
                     <div className='lunboBox'>
                         <div className='text'>
@@ -93,19 +120,19 @@ function Home() {
                         <div className='text' style={{ left: '5%', }}>
                             <div className='textTitle'>
                                 <h3 >
-                                    <span style={{color:'#fff'}}>
+                                    <span style={{ color: '#fff' }}>
                                         手指银行4.0
                                     </span>
-                                    <b style={{backgroundColor: "rgba(255, 255, 255, 0.3)"}}></b>
+                                    <b style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}></b>
                                 </h3>
                             </div>
 
                             <div className='textContent'>
-                                <h3 style={{color:'#fff'}}>
+                                <h3 style={{ color: '#fff' }}>
                                     精彩、智能4.0、给您好看<br />
                                     让银行成为一种随时可得的服务
                                 </h3>
-                                <p  style={{color:'#fff'}}>
+                                <p style={{ color: '#fff' }}>
                                     三湘银行手指银行APP全新上线
                                 </p>
                             </div>
@@ -115,8 +142,9 @@ function Home() {
                         <img alt='lunbo4' src={lunbo4} className='lunboBox' />
                     </div>
                 </Carousel>
-                <DemoChart />
+                {/* <DemoChart /> */}
             </div>
+        </>
     )
 }
 

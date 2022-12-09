@@ -1,6 +1,5 @@
 import IndexRouter from './router/IndexRouter.jsx'
-import 'antd/dist/reset.css';
-import './http/axiosConfig'
+import 'antd/dist/antd.css';
 import './App.css';
 
 function App() {

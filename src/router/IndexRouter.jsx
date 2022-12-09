@@ -6,11 +6,12 @@ import PageBox from './PageBox'
 
 
 function IndexRouter() {
-    const isLogin = useSelector((stet)=>stet.LoginReducer)
+    const {isLogin} = useSelector((stet)=>stet.LoginReducer)
     return (
         <Routes>
+            <Route path='/login' element={<LoginPage/>}/>
             <Route path='/*' element={
-                isLogin? (<PageBox/>):(<LoginPage/>)
+                isLogin? <PageBox/>:<Navigate to="/login"/>
             }/>
             <Route path="/" element={<Navigate to="/home"/>} />
         </Routes>
