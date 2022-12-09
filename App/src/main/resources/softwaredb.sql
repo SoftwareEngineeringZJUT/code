@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 09/12/2022 19:25:19
+ Date: 09/12/2022 20:06:16
 */
 
 SET NAMES utf8mb4;
@@ -112,7 +112,7 @@ CREATE TABLE `order`  (
   `product_id` bigint NOT NULL COMMENT '产品id',
   `user_id` bigint NOT NULL COMMENT '用户id',
   `amount` decimal(10, 0) NOT NULL COMMENT '金额',
-  `state` tinyint(3) UNSIGNED ZEROFILL NOT NULL DEFAULT 000 COMMENT '支付状态（0：未支付，1：已支付，2：已取消）',
+  `state` tinyint(3) UNSIGNED ZEROFILL NOT NULL DEFAULT 000 COMMENT '支付状态（0：买进，1：卖出）',
   `pay_time` datetime NOT NULL COMMENT '支付时间',
   `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `gmt_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',

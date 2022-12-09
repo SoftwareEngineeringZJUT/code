@@ -38,7 +38,7 @@ public class ProductController {
 
     final Integer SUPER_ADMIN = 5;
 
-    @PostMapping("/getProducts")
+    @PostMapping("/adminGetProducts")
     public String adminGetProducts(Admin _admin){
         String retJSON = "[]";
 
@@ -80,7 +80,7 @@ public class ProductController {
         return retJSON;
     }
 
-    @PostMapping("/getProducts")
+    @PostMapping("/userGetProducts")
     public String userGetProducts(){
         String retJSON = "[]";
 
