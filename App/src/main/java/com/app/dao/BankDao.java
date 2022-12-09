@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface BankDao {
     //插入新记录
-    @Insert("insert into bank(bank_card,bank_balance)values(#{bank_card},#{bank_balance})")
+    @Insert("insert into bank values(#{bank_card},#{bank_balance},#{gmt_create},#{gmt_create})")
     void insertBank(Bank bank);
 
     //获取全部
