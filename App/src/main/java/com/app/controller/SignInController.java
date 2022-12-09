@@ -32,6 +32,7 @@ public class SignInController {
     @PostMapping("/userSignIn")
     public String userSignIn(User _user){
 
+        System.out.println(_user);
         String retJSON = "{}";
 
         // 验证账号
