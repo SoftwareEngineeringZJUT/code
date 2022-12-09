@@ -26,4 +26,7 @@ public interface BankDao {
     //删除银行卡记录
     @Delete("delete from bank where bank_card = #{bank_card}")
     void deleteCard(String bank_card);
+
+    @Select("select * from bank where bank_card = #{bank_card}")
+    Bank getBankByBankCard(String bank_card);
 }

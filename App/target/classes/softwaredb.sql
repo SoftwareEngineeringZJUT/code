@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : mysql
+ Source Server         : student
  Source Server Type    : MySQL
- Source Server Version : 80031
+ Source Server Version : 80028
  Source Host           : localhost:3306
  Source Schema         : softwaredb
 
  Target Server Type    : MySQL
- Target Server Version : 80031
+ Target Server Version : 80028
  File Encoding         : 65001
 
- Date: 07/12/2022 10:58:26
+ Date: 09/12/2022 11:18:31
 */
 
 SET NAMES utf8mb4;
@@ -31,7 +31,7 @@ CREATE TABLE `admin`  (
   `gmt_update` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`admin_id`) USING BTREE,
   UNIQUE INDEX `ad`(`account`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理员' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理员' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of admin
@@ -48,13 +48,27 @@ INSERT INTO `admin` VALUES (9, '5iph', 'kez8', '武展鹏', 2, '2022-09-16 20:51
 INSERT INTO `admin` VALUES (10, 'xsAU3', 'djk2D', '阎子默', 1, '2022-01-13 05:25:30', '2022-08-10 04:50:24');
 
 -- ----------------------------
+-- Table structure for bank
+-- ----------------------------
+DROP TABLE IF EXISTS `bank`;
+CREATE TABLE `bank`  (
+  `bank_card` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '银行卡号',
+  `bank_balance` decimal(64, 2) NULL DEFAULT NULL COMMENT '银行卡余额',
+  PRIMARY KEY (`bank_card`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of bank
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for blacklist
 -- ----------------------------
 DROP TABLE IF EXISTS `blacklist`;
 CREATE TABLE `blacklist`  (
   `uid` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户名',
   PRIMARY KEY (`uid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '黑名单' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '黑名单' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of blacklist
@@ -81,7 +95,7 @@ CREATE TABLE `order`  (
   INDEX `product`(`67`) USING BTREE,
   CONSTRAINT `id` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `product` FOREIGN KEY (`67`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 221018020 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '订单表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '订单表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order
@@ -132,7 +146,7 @@ CREATE TABLE `product`  (
   PRIMARY KEY (`product_id`) USING BTREE,
   INDEX `pub`(`publisher`) USING BTREE,
   CONSTRAINT `pub` FOREIGN KEY (`publisher`) REFERENCES `admin` (`admin_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '产品表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '产品表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product
@@ -161,12 +175,12 @@ CREATE TABLE `user`  (
   `gmt_update` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`uid`) USING BTREE,
   UNIQUE INDEX `acc`(`account`) USING BTREE COMMENT '唯一'
-) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户表信息' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户表信息' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (21, 'ababa', 'password', '王嘉懿', '11111', '河北', '949253319326529', '15833045629', '0', 205986079, 'nFvZ', '2022-12-01 15:36:02', '2022-12-01 15:36:02');
+INSERT INTO `user` VALUES (21, 'ababa', 'password', '王嘉懿', '11111', '河南', '949253319326529', '15833045629', '0', 205986079, 'nFvZ', '2022-12-03 14:51:15', '2022-12-03 14:51:15');
 INSERT INTO `user` VALUES (22, '夏明辉', 'password', '陶远航', '11111', '安徽', '924332441159241', '15744061205', '0', 63117416, 'HAuO', '2022-11-30 17:20:06', '2022-11-30 17:20:06');
 INSERT INTO `user` VALUES (23, '叶志强', 'password', '尹鸿涛', '11111', '福建', '523357367145629', '13952577250', '0', 1, 'CCA3', '2022-11-30 17:20:07', '2022-11-30 17:20:07');
 INSERT INTO `user` VALUES (24, '夏天翊', 'password', '钱天磊', '11111', '重庆', '545741819458527', '13752132663', '0', 912623, 'e6sQ', '2022-11-30 17:20:07', '2022-11-30 17:20:07');
@@ -177,7 +191,7 @@ INSERT INTO `user` VALUES (28, '高嘉懿', 'password', '任弘文', '11111', '�
 INSERT INTO `user` VALUES (30, '严哲瀚', 'password', '叶擎宇', '11111', '北京', '544941575294526', '13826487172', '0', 67176927, 'Pj', '2022-11-30 17:20:20', '2022-11-30 17:20:20');
 INSERT INTO `user` VALUES (31, '郝凯瑞', 'password', '马立果', '11111', '吉林', '262854179319773', '17821963792', '0', 77952980, '2gLUy', '2022-11-30 17:20:21', '2022-11-30 17:20:21');
 INSERT INTO `user` VALUES (32, '曹鑫磊', 'password', '程思源', '11111', '广东', '614258291697214', '17693644756', '0', 269, 'z7S', '2022-11-30 17:20:21', '2022-11-30 17:20:21');
-INSERT INTO `user` VALUES (33, '孟鸿涛', 'password', '冯鹏', '11111', '吉林', '215166347866352', '14563202790', '0', 207, 'W6mYn', '2022-11-30 17:20:22', '2022-11-30 17:20:22');
+INSERT INTO `user` VALUES (33, '孟鸿涛', 'password', '冯鹏', '11111', '吉林', '215166347866352', '14563202790', '1', 207, 'W6mYn', '2022-12-03 14:51:50', '2022-12-03 14:51:50');
 INSERT INTO `user` VALUES (34, '彭金鑫', 'password', '雷鹏煊', '11111', '广东', '974545732877946', '17072767762', '0', 7012409688, 'lsh', '2022-11-30 17:20:22', '2022-11-30 17:20:22');
 INSERT INTO `user` VALUES (35, '姜瑞霖', 'password', '何立诚', '11111', '海南', '456487169694617', '17147828004', '0', 56677001, 'tW4', '2022-11-30 17:20:23', '2022-11-30 17:20:23');
 INSERT INTO `user` VALUES (36, '唐晓博', 'password', '韦立果', '11111', '广西壮族自治区', '176986322451631', '14726075467', '0', 2, '5ty', '2022-11-30 17:20:23', '2022-11-30 17:20:23');
@@ -186,6 +200,8 @@ INSERT INTO `user` VALUES (38, '曹瑞霖', 'password', '黎楷瑞', '11111', '�
 INSERT INTO `user` VALUES (39, '侯鹤轩', 'password', '杜文博', '11111', '台湾', '251243258899898', '15309996754', '0', 1294, 'rudk', '2022-11-30 17:20:25', '2022-11-30 17:20:25');
 INSERT INTO `user` VALUES (40, '彭越泽', 'password', '贾致远', '11111', '海南', '431876728662644', '15380462027', '0', 336370835, 'e1Px', '2022-11-30 17:20:26', '2022-11-30 17:20:26');
 INSERT INTO `user` VALUES (41, '崔果', 'password', '王嘉懿', '11111', '河北', '949253319326529', '15833045629', '0', 205986079, 'nFvZ', '2022-11-30 17:20:06', '2022-11-30 17:20:06');
+INSERT INTO `user` VALUES (43, 'ewqe', 'ewqe', 'ewqe', 'ewqe', 'ewqe', 'ewqed', 'ewqe我打的', 'ewqe', 0, 'ewqe', '2022-12-03 14:51:43', '2022-12-03 14:51:43');
+INSERT INTO `user` VALUES (45, 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 0, 'qwe', '2022-12-03 15:05:36', '2022-12-03 15:05:36');
 
 -- ----------------------------
 -- Table structure for whitelist
@@ -194,7 +210,7 @@ DROP TABLE IF EXISTS `whitelist`;
 CREATE TABLE `whitelist`  (
   `uid` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户名',
   PRIMARY KEY (`uid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '白名单' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '白名单' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of whitelist
