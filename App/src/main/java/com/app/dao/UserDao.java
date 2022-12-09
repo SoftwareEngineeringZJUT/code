@@ -40,6 +40,9 @@ public interface UserDao {
     @Update("update user set real_name=#{real_name} ,id_card=#{id_card},address=#{address},bank_card=#{bank_card},phone=#{phone},user_status=#{user_status} where uid=#{uid};")
     void updateInfo(Integer uid,String real_name,String id_card,String address,String bank_card,String phone,String user_status);
 
+    @Update("update user set account = #{account} , password = #{password} , real_name=#{real_name} ,id_card=#{id_card},address=#{address},bank_card=#{bank_card},phone=#{phone},user_status=#{user_status} , balance = #{balance} , label = #{label} where uid=#{uid};")
+    void update(User user);
+
     //根据用户的uid修改一个用户的用户标签
     @Update("update user set label=#{label} where uid=#{uid}")
     void updateLabelByUid(Integer uid,String label);

@@ -9,8 +9,8 @@ import java.util.List;
 @Mapper
 public interface OrderDao {
     //插入一条新记录
-    @Insert("insert into `order`(id,priduct_id,user_id,amount,state,pay_time,gmt_create,gmt_update)" +
-        "values(NULL,#{priduct_id},#{user_id},#{amount},#{state},#{pay_time},#{gmt_create},#{gmt_update})")
+    @Insert("insert into `order`(id,product_id,user_id,amount,state,pay_time,gmt_create,gmt_update)" +
+        "values(NULL,#{product_id},#{user_id},#{amount},#{state},#{pay_time},#{gmt_create},#{gmt_update})")
     void InsertOrder(Order order);
 
     //获取全部订单信息
@@ -36,6 +36,10 @@ public interface OrderDao {
     //根据订单编号修改订单支付状态、支付时间
     @Update("update `order` set `state`=#{state},pay_time=#{pay_time} where id=#{id}")
     void UpdateStateAndTimeById(Integer id , String state , Date pay_time);
+
+    // 更新信息
+    @Update("update `order` set product_id = #{product_id} , user_id = #{user_id}  ,amount = #{amount}  ,state = #{state} , pay_time = #{pay_time} where id = ")
+    void update(Order order);
 
     //根据订单编号删除记录
     @Delete("delete from `order` where id=#{id}")
