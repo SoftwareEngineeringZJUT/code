@@ -11,7 +11,7 @@
  Target Server Version : 80028
  File Encoding         : 65001
 
- Date: 09/12/2022 11:18:31
+ Date: 09/12/2022 16:44:01
 */
 
 SET NAMES utf8mb4;
@@ -27,8 +27,8 @@ CREATE TABLE `admin`  (
   `password` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '密码',
   `real_name` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '真实姓名',
   `rank` int NOT NULL DEFAULT 0 COMMENT '权限等级',
-  `gmt_create` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-  `gmt_update` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `gmt_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`admin_id`) USING BTREE,
   UNIQUE INDEX `ad`(`account`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理员' ROW_FORMAT = Dynamic;
@@ -36,7 +36,7 @@ CREATE TABLE `admin`  (
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES (1, '9VC', 'GR', '钱博超', 2, '2022-11-14 16:51:25', '2022-07-31 02:23:47');
+INSERT INTO `admin` VALUES (1, '9VC', 'dwadsa', '钱博超', 2, '2022-11-14 16:51:25', '2022-12-09 16:29:18');
 INSERT INTO `admin` VALUES (2, 'qwaG', 'wmwz', '石天翊', 3, '2022-08-31 03:28:39', '2022-04-05 19:44:30');
 INSERT INTO `admin` VALUES (3, 'Ww', 'A98oa', '周烨华', 3, '2022-12-27 14:39:40', '2022-12-11 04:49:01');
 INSERT INTO `admin` VALUES (4, 'Y1', 'CD4H9', '许鹤轩', 3, '2022-09-19 07:18:16', '2022-03-26 17:06:10');
@@ -54,6 +54,8 @@ DROP TABLE IF EXISTS `bank`;
 CREATE TABLE `bank`  (
   `bank_card` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '银行卡号',
   `bank_balance` decimal(64, 2) NULL DEFAULT NULL COMMENT '银行卡余额',
+  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `gmt_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`bank_card`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
@@ -67,14 +69,16 @@ CREATE TABLE `bank`  (
 DROP TABLE IF EXISTS `blacklist`;
 CREATE TABLE `blacklist`  (
   `uid` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户名',
+  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `gmt_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`uid`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '黑名单' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of blacklist
 -- ----------------------------
-INSERT INTO `blacklist` VALUES ('2');
-INSERT INTO `blacklist` VALUES ('4');
+INSERT INTO `blacklist` VALUES ('2', '2022-12-09 16:42:24', '2022-12-09 16:42:24');
+INSERT INTO `blacklist` VALUES ('4', '2022-12-09 16:42:24', '2022-12-09 16:42:24');
 
 -- ----------------------------
 -- Table structure for order
@@ -87,8 +91,8 @@ CREATE TABLE `order`  (
   `amount` decimal(10, 0) NOT NULL COMMENT '金额',
   `state` tinyint NOT NULL DEFAULT 0 COMMENT '支付状态（0：未支付，1：已支付，2：已取消）',
   `pay_time` datetime NULL DEFAULT NULL COMMENT '支付时间',
-  `gmt_create` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-  `gmt_update` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `gmt_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `gmt_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `+` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   PRIMARY KEY (`815`) USING BTREE,
   INDEX `id`(`user_id`) USING BTREE,
@@ -141,8 +145,8 @@ CREATE TABLE `product`  (
   `onsale` int NOT NULL COMMENT '是否上线',
   `description` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '关于商品的描述。。。' COMMENT '商品说明',
   `service_process` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '原子服务流程',
-  `gmt_create` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `gmt_update` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `gmt_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `gmt_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`product_id`) USING BTREE,
   INDEX `pub`(`publisher`) USING BTREE,
   CONSTRAINT `pub` FOREIGN KEY (`publisher`) REFERENCES `admin` (`admin_id`) ON DELETE CASCADE ON UPDATE RESTRICT
@@ -171,8 +175,8 @@ CREATE TABLE `user`  (
   `user_status` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '0' COMMENT '用户状态',
   `balance` bigint NOT NULL DEFAULT 0 COMMENT '余额',
   `label` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户标签',
-  `gmt_create` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
-  `gmt_update` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `gmt_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `gmt_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`uid`) USING BTREE,
   UNIQUE INDEX `acc`(`account`) USING BTREE COMMENT '唯一'
 ) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户表信息' ROW_FORMAT = Dynamic;
@@ -200,8 +204,6 @@ INSERT INTO `user` VALUES (38, '曹瑞霖', 'password', '黎楷瑞', '11111', '�
 INSERT INTO `user` VALUES (39, '侯鹤轩', 'password', '杜文博', '11111', '台湾', '251243258899898', '15309996754', '0', 1294, 'rudk', '2022-11-30 17:20:25', '2022-11-30 17:20:25');
 INSERT INTO `user` VALUES (40, '彭越泽', 'password', '贾致远', '11111', '海南', '431876728662644', '15380462027', '0', 336370835, 'e1Px', '2022-11-30 17:20:26', '2022-11-30 17:20:26');
 INSERT INTO `user` VALUES (41, '崔果', 'password', '王嘉懿', '11111', '河北', '949253319326529', '15833045629', '0', 205986079, 'nFvZ', '2022-11-30 17:20:06', '2022-11-30 17:20:06');
-INSERT INTO `user` VALUES (43, 'ewqe', 'ewqe', 'ewqe', 'ewqe', 'ewqe', 'ewqed', 'ewqe我打的', 'ewqe', 0, 'ewqe', '2022-12-03 14:51:43', '2022-12-03 14:51:43');
-INSERT INTO `user` VALUES (45, 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 0, 'qwe', '2022-12-03 15:05:36', '2022-12-03 15:05:36');
 
 -- ----------------------------
 -- Table structure for whitelist
@@ -209,13 +211,15 @@ INSERT INTO `user` VALUES (45, 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 
 DROP TABLE IF EXISTS `whitelist`;
 CREATE TABLE `whitelist`  (
   `uid` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户名',
+  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `gmt_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`uid`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '白名单' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of whitelist
 -- ----------------------------
-INSERT INTO `whitelist` VALUES ('3');
-INSERT INTO `whitelist` VALUES ('4');
+INSERT INTO `whitelist` VALUES ('3', '2022-12-09 16:41:54', '2022-12-09 16:41:54');
+INSERT INTO `whitelist` VALUES ('4', '2022-12-09 16:41:54', '2022-12-09 16:41:54');
 
 SET FOREIGN_KEY_CHECKS = 1;
