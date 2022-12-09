@@ -6,21 +6,17 @@ import com.app.dao.UserDao;
 import com.app.domain.Admin;
 import com.app.domain.Bank;
 import com.app.domain.User;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-import java.util.Date;
-
 import static com.app.core.util.MyJSONUtil.addKeyValue;
 
 @RestController
-@RequestMapping("/signIn")
-public class SignInController {
+@RequestMapping("/superAdmin")
+public class SuperAdminController {
 
     @Resource
     private UserDao userDao;
@@ -28,6 +24,24 @@ public class SignInController {
     private AdminDao adminDao;
     @Resource
     private BankDao bankDao;
+
+    /**
+     *  管理员信息更新
+     *      增加 ok
+     *      删除
+     *      查询
+     *      更改
+     *  用户信息更新
+     *      增加 ok
+     *      删除
+     *      查询
+     *      更改
+     *  订单管理
+     *      增加
+     *      删除
+     *      查询
+     *      更改
+     */
 
     @PostMapping("/userSignIn")
     public String userSignIn(User _user){
@@ -53,17 +67,13 @@ public class SignInController {
 
         _user.setBalance(0);
         _user.setLabel("");
-        _user.setGmt_create(new Date());
-        _user.setGmt_update(new Date());
         _user.setUser_status("0");
 
-        System.out.println(_user);
-
         userDao.insertUser(_user);
-
         retJSON = addKeyValue(retJSON , "status" , "APPROVED");
         return retJSON;
     }
+
 
     @PostMapping("/adminSignIn")
     public String adminSignIn(Admin _admin){

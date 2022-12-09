@@ -11,6 +11,18 @@ import javax.annotation.Resource;
 @RequestMapping("/user")
 public class UserController {
 
+    /**
+     *  购买产品
+     *
+     *  更新个人信息
+     *
+     *  查看收益
+     *
+     *  查看订单
+     *
+     *  出售产品
+     */
+
     @Resource
     private ProductDao productDao;
 

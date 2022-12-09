@@ -8,8 +8,8 @@ import java.util.List;
 @Mapper
 public interface ProductDao {
     // 插入一条新记录
-    @Insert("insert into product(product_id,name,publisher,expire,annual_rate,start_deposit,increment,personal_limit,daily_limit,stock,risk,settlement_type,onsale,description,service_process,gmt_create,gmt_update)" +
-            "values(NULL,#{name},#{publisher},#{expire},#{annual_rate},#{start_deposit},#{increment},#{personal_limit},#{daily_limit},#{stock},#{risk},#{settlement_type},#{onsale},#{description},#{service_process},#{gmt_create},#{gmt_update})")
+    @Insert("insert into product(product_id,name,publisher,expire,annual_rate,start_deposit,increment,personal_limit,daily_limit,stock,saled,risk,settlement_type,onsale,description,service_process,gmt_create,gmt_update)" +
+            "values(NULL,#{name},#{publisher},#{expire},#{annual_rate},#{start_deposit},#{increment},#{personal_limit},#{daily_limit},#{stock}, #{saled} ,#{risk},#{settlement_type},#{onsale},#{description},#{service_process},#{gmt_create},#{gmt_update})")
     void insertProduct(Product product);
 
     // 获取全部product
@@ -35,7 +35,7 @@ public interface ProductDao {
     // 根据商品id修改商品基础信息，包括商品名称、商品期限、年转化率、起存金额、递增金额、每人限额
     // 、每日限额、产品库存、风险等级、结息方式、是否上线、商品说明
     @Update("update product set name = #{name} , expire = #{expire} , annual_rate = #{annual_rate} ,start_deposit = #{start_deposit} , " +
-    "increment =  #{increment} , personal_limit = #{personal_limit} ,daily_limit = #{daily_limit} , stock = #{stock} , risk = #{risk} , " +
+    "increment =  #{increment} , personal_limit = #{personal_limit} ,daily_limit = #{daily_limit} , stock = #{stock} , saled = #{saled} risk = #{risk} , " +
     "settlement_type = #{settlement_type} , onsale = #{onsale} , description = #{description} where product_id = #{product_id}")
     void UpdateProductInfo(Product product);
 

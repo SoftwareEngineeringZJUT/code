@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -72,48 +73,55 @@ public class Product {
     private double stock;
 
     /**
-     *  风险等级
+     *  已售出
      */
     @JSONField(ordinal = 11)
+    private double saled;
+
+    /**
+     *  风险等级
+     */
+    @JSONField(ordinal = 12)
     private int risk;
 
     /**
      *  结息方式
      */
-    @JSONField(ordinal = 12)
+    @JSONField(ordinal = 13)
     private String settlement_type;
 
     /**
      *  是否上线.1表示上线
      */
-    @JSONField(ordinal = 13)
+    @JSONField(ordinal = 14)
     private int onsale;
 
     /**
      *  商品说明
      */
-    @JSONField(ordinal = 14)
+    @JSONField(ordinal = 15)
     private String description;
 
     /**
      * 原子服务流程
      */
-    @JSONField(ordinal = 15)
+    @JSONField(ordinal = 16)
     private String service_process;
 
     /**
      * 创建时间
      */
-    @JSONField(ordinal = 16 , format="yyyy-MM-dd HH:mm:ss.SSS")
+    @JSONField(ordinal = 17 , format="yyyy-MM-dd HH:mm:ss.SSS")
     private Date gmt_create;
 
     /**
      * 更新时间
      */
-    @JSONField(ordinal = 17 , format="yyyy-MM-dd HH:mm:ss.SSS")
+    @JSONField(ordinal = 18 , format="yyyy-MM-dd HH:mm:ss.SSS")
     private Date gmt_update;
 
-    public Product(String name, Integer publisher, Date expire, float annual_rate, double start_deposit, double increment,double personal_limit, double daily_limit, double stock, int risk, String settlement_type, int onsale, String description, String service_process) {
+    public Product(String name, Integer publisher, Date expire, float annual_rate, double start_deposit, double increment, double personal_limit, double daily_limit, double stock, double saled, int risk, String settlement_type, int onsale, String description, String service_process, Date gmt_create, Date gmt_update) {
+        this.product_id = null;
         this.name = name;
         this.publisher = publisher;
         this.expire = expire;
@@ -123,12 +131,13 @@ public class Product {
         this.personal_limit = personal_limit;
         this.daily_limit = daily_limit;
         this.stock = stock;
+        this.saled = saled;
         this.risk = risk;
         this.settlement_type = settlement_type;
         this.onsale = onsale;
         this.description = description;
         this.service_process = service_process;
-        this.gmt_create = new Date();
-        this.gmt_update = new Date();
+        this.gmt_create = gmt_create;
+        this.gmt_update = gmt_update;
     }
 }
