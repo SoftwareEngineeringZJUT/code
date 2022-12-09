@@ -18,12 +18,6 @@ import static com.app.core.util.MyJSONUtil.addKeyValue;
 @RequestMapping("/superAdmin")
 public class SuperAdminController {
 
-    @Resource
-    private UserDao userDao;
-    @Resource
-    private AdminDao adminDao;
-    @Resource
-    private BankDao bankDao;
 
     /**
      *  管理员信息更新
@@ -36,61 +30,7 @@ public class SuperAdminController {
      *      删除
      *      查询
      *      更改
-     *  订单管理
-     *      增加
-     *      删除
-     *      查询
-     *      更改
      */
 
-    @PostMapping("/userSignIn")
-    public String userSignIn(User _user){
 
-        System.out.println(_user);
-        String retJSON = "{}";
-
-        // 验证账号
-        String account = _user.getAccount();
-        User user = userDao.getUserByAccount(_user.getAccount());
-        if(user != null){
-            retJSON = addKeyValue(retJSON , "status" , "ACCOUNT_DUPLICATED");
-            return retJSON;
-        }
-
-        // 验证银行卡号
-        String bank_card = _user.getBank_card();
-        Bank bank = bankDao.getBankByBankCard(bank_card);
-        if(bank == null){
-            retJSON = addKeyValue(retJSON , "status" , "BANK_CARD_NOT_FOUND");
-            return retJSON;
-        }
-
-        _user.setBalance(0);
-        _user.setLabel("");
-        _user.setUser_status("0");
-
-        userDao.insertUser(_user);
-        retJSON = addKeyValue(retJSON , "status" , "APPROVED");
-        return retJSON;
-    }
-
-
-    @PostMapping("/adminSignIn")
-    public String adminSignIn(Admin _admin){
-        String retJSON = "{}";
-
-        System.out.println(_admin);
-        String account = _admin.getAccount();
-
-        Admin admin = adminDao.getAdminByAccount(account);
-
-        if(admin == null){
-            retJSON = addKeyValue(retJSON , "status" , "APPROVED");
-//            adminDao.insertAdmin(_admin);
-        }   else{
-            retJSON = addKeyValue(retJSON , "status" , "ACCOUNT_DUPLICATED");
-        }
-        System.out.println(retJSON);
-        return retJSON;
-    }
 }

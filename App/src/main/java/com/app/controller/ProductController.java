@@ -5,27 +5,31 @@ import com.app.dao.AdminDao;
 import com.app.dao.ProductDao;
 import com.app.domain.Admin;
 import com.app.domain.Product;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 import static com.app.core.util.MyJSONUtil.addKeyValue;
 
-@Controller
-@RequestMapping("/admin")
-public class AdminController {
+@RestController
+@RequestMapping("/product")
+public class ProductController {
 
     /**
-     *      产品编排
+     *  产品编排(增加)
+     *  产品查询
+     *      用户
+     *      管理员
+     *  产品修改
+     *  产品删除
      *
-     *      总体数据统计（区分权限）
+     *  产品购买
      *
      *
-     * */
-
+     */
 
     @Resource
     private ProductDao productDao;
@@ -35,7 +39,7 @@ public class AdminController {
     final Integer SUPER_ADMIN = 5;
 
     @PostMapping("/getProducts")
-    public String getProducts(Admin _admin){
+    public String adminGetProducts(Admin _admin){
         String retJSON = "[]";
 
         Admin admin = adminDao.getAdminByAccount(_admin.getAccount());
@@ -71,6 +75,14 @@ public class AdminController {
             return retJSON;
         }
 
+
+
+        return retJSON;
+    }
+
+    @PostMapping("/getProducts")
+    public String userGetProducts(){
+        String retJSON = "[]";
 
 
         return retJSON;
