@@ -21,7 +21,7 @@ public class Order {
      *  产品id
      */
     @JSONField(ordinal = 2)
-    private Integer priduct_id;
+    private Integer product_id;
 
     /**
      *  用户id
@@ -59,8 +59,8 @@ public class Order {
     @JSONField(ordinal = 8 , format="yyyy-MM-dd HH:mm:ss.SSS")
     private Date gmt_update;
 
-    public Order(Integer priduct_id, Integer user_id, double amount, int state, Date pay_time) {
-        this.priduct_id = priduct_id;
+    public Order(Integer product_id, Integer user_id, double amount, int state, Date pay_time) {
+        this.product_id = product_id;
         this.user_id = user_id;
         this.amount = amount;
         this.state = state;

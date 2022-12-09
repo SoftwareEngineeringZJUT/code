@@ -42,8 +42,8 @@ public interface AdminDao {
     @Update("update admin set `rank`=#{rank} where admin_id=#{admin_id}")
     void updateRankByUid(Integer uid,String rank);
 
-//    @Update()
-//    void updateRankByUid(Integer uid,Admin admin);
+    @Update("update admin set account = #{account},password = #{password},real_name = #{real_name},`rank` = #{rank} where admin_id=#{admin_id}")
+    void updateAdmin(Admin admin);
 
     // 根据uid删除一条记录
     @Delete("delete from admin where admin_id=#{admin_id}")

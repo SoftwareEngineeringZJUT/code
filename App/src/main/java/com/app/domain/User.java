@@ -69,7 +69,7 @@ public class User {
      * 余额
      */
     @JSONField(ordinal = 10)
-    private Integer balance;
+    private Double balance;
 
     /**
      * 用户标签
@@ -90,7 +90,7 @@ public class User {
     @JSONField(ordinal = 13 , format="yyyy-MM-dd HH:mm:ss.SSS")
     private Date gmt_update ;
 
-    public User(String account, String password, String real_name, String id_card, String address, String bank_card, String phone, String user_status, Integer balance, String label) {
+    public User(String account, String password, String real_name, String id_card, String address, String bank_card, String phone, String user_status, Double balance, String label) {
         this.account = account;
         this.password = password;
         this.real_name = real_name;

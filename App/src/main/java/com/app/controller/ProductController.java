@@ -49,8 +49,6 @@ public class ProductController {
             return retJSON;
         }
 
-        System.out.println(admin);
-
         // 超级管理员
         if(admin.getRank() > SUPER_ADMIN){
             productList = productDao.getAll();

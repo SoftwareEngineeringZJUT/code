@@ -14,13 +14,15 @@ import static com.app.core.util.MyJSONUtil.addKeyValue;
 @RestController
 @RequestMapping("/adminInfo")
 public class AdminInfoController {
-    /**
-     * 管理员信息删改查
-     */
 
     @Resource
     private AdminDao adminDao;
 
+    /**
+     * 删除管理员
+     * @param _admin
+     * @return
+     */
     @PostMapping("/delAdmin")
     public String delAdmin(Admin _admin){
 
@@ -31,13 +33,15 @@ public class AdminInfoController {
             retJSON = addKeyValue(retJSON , "status" , "ADMIN_NOT_FOUND");
             return retJSON;
         }
-
-        adminDao.deleteById(_admin.getAdmin_id());
+        adminDao.deleteById(admin.getAdmin_id());
         retJSON = addKeyValue(retJSON , "status" , "APPROVED");
         return retJSON;
     }
 
-
+    /**
+     * 获取所有管理员
+     * @return
+     */
     @PostMapping("/getAdmin")
     public String getAdmin(){
         String retJSON = "[]";
@@ -50,18 +54,32 @@ public class AdminInfoController {
         return retJSON;
     }
 
+    /**
+     * 更新管理员信息
+     * @param _admin
+     * @return
+     */
     @PostMapping("/updateAdmin")
     public String updateAdmin(Admin _admin){
         String retJSON = "{}";
 
+        // 存在性检验
         Admin admin = adminDao.getAdminById(_admin.getAdmin_id());
         if(admin == null){
             retJSON = addKeyValue(retJSON , "status" , "ADMIN_NOT_FOUND");
             return retJSON;
         }
 
-//        adminDao.up
+        // 更新账户信息
+        String newaccount = _admin.getAccount();
+        admin = adminDao.getAdminByAccount(newaccount);
+        if(admin != null && admin.getAdmin_id() != _admin.getAdmin_id()){
+            retJSON = addKeyValue(retJSON , "status" , "ACCOUNT_DUPLICATED");
+            return retJSON;
+        }
 
+        adminDao.updateAdmin(_admin);
+        retJSON = addKeyValue(retJSON , "status" , "APPROVED");
         return retJSON;
     }
 }
