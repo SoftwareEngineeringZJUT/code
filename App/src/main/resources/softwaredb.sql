@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 09/12/2022 20:06:16
+ Date: 10/12/2022 01:37:29
 */
 
 SET NAMES utf8mb4;
@@ -36,16 +36,14 @@ CREATE TABLE `admin`  (
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES (1, '9VC', 'dwadsa', '钱博超', 2, '2022-11-14 16:51:25', '2022-12-09 16:29:18');
+INSERT INTO `admin` VALUES (1, '9VC', 'dwadsa', '钱博超', 6, '2022-11-14 16:51:25', '2022-12-10 00:55:36');
 INSERT INTO `admin` VALUES (2, 'qwaG', 'wmwz', '石天翊', 3, '2022-08-31 03:28:39', '2022-04-05 19:44:30');
 INSERT INTO `admin` VALUES (3, 'Ww', 'A98oa', '周烨华', 3, '2022-12-27 14:39:40', '2022-12-11 04:49:01');
 INSERT INTO `admin` VALUES (4, 'Y1', 'CD4H9', '许鹤轩', 3, '2022-09-19 07:18:16', '2022-03-26 17:06:10');
 INSERT INTO `admin` VALUES (5, 'a119r', 'Behw', '阎正豪', 1, '2022-11-19 15:07:49', '2022-07-02 15:22:26');
 INSERT INTO `admin` VALUES (6, 'U4B', 'tz', '刘鹏飞', 2, '2022-11-15 00:16:04', '2022-02-07 18:01:24');
 INSERT INTO `admin` VALUES (7, 'nw', 'GQD', '陈立果', 3, '2022-05-18 08:41:14', '2022-06-10 21:08:20');
-INSERT INTO `admin` VALUES (8, 'Ly3eF', 'twmLj', '唐文', 2, '2022-10-27 14:48:54', '2022-11-22 04:12:04');
-INSERT INTO `admin` VALUES (9, '5iph', 'kez8', '武展鹏', 2, '2022-09-16 20:51:58', '2022-12-13 23:31:05');
-INSERT INTO `admin` VALUES (10, 'xsAU3', 'djk2D', '阎子默', 1, '2022-01-13 05:25:30', '2022-08-10 04:50:24');
+INSERT INTO `admin` VALUES (10, 'OP', 'djk2D', '阎子默', 1, '2022-01-13 05:25:30', '2022-12-09 20:27:51');
 INSERT INTO `admin` VALUES (11, 'sda', 'dwasd', 'qqqwda', 3, '2022-12-09 17:42:41', '2022-12-09 17:42:47');
 
 -- ----------------------------
@@ -196,7 +194,7 @@ CREATE TABLE `user`  (
   `bank_card` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '银行卡号',
   `phone` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '手机号',
   `user_status` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0' COMMENT '用户状态',
-  `balance` bigint(20) UNSIGNED ZEROFILL NOT NULL DEFAULT 00000000000000000000 COMMENT '余额',
+  `balance` decimal(20, 0) UNSIGNED ZEROFILL NOT NULL DEFAULT 00000000000000000000 COMMENT '余额',
   `label` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '用户标签',
   `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `gmt_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
