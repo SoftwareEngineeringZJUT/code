@@ -49,7 +49,7 @@ public interface UserDao {
 
     //根据用户的uid修改一个用户的余额
     @Update("update user set balance=#{balance} where uid=#{uid};")
-    void updateBalanceByUid(Integer uid,String balance);
+    void updateBalanceByUid(Integer uid,double balance);
 
     //根据用户的uid删除一个用户
     @Delete("delete from user where uid=#{uid};")
