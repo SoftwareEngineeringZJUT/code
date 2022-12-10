@@ -30,13 +30,13 @@ public class Order {
     private Integer user_id;
 
     /**
-     *  余额
+     *  金额
      */
     @JSONField(ordinal = 4)
     private double amount;
 
     /**
-     *  支付状态,0表示未支付，1表示已支付，2表示已取消
+     *  支付状态,0表示买进，1表示卖出
      */
     @JSONField(ordinal = 5)
     private int state;
