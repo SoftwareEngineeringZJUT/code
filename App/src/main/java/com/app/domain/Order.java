@@ -1,9 +1,11 @@
 package com.app.domain;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -44,7 +46,9 @@ public class Order {
     /**
      *  支付时间
      */
-    @JSONField(ordinal = 6 , format="yyyy-MM-dd HH:mm:ss.SSS")
+    @JSONField(ordinal = 6)
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date pay_time;
 
     /**

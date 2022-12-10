@@ -40,7 +40,8 @@ public class SignInController {
         // 验证账号
         String account = _user.getAccount();
         User user = userDao.getUserByAccount(_user.getAccount());
-        if(user != null){
+        Admin admin = adminDao.getAdminByAccount(_user.getAccount());
+        if(user != null || admin != null){
             retJSON = addKeyValue(retJSON , "status" , "ACCOUNT_DUPLICATED");
             return retJSON;
         }
@@ -67,14 +68,14 @@ public class SignInController {
         String account = _admin.getAccount();
 
         Admin admin = adminDao.getAdminByAccount(account);
-
-        if(admin == null){
+        User user = userDao.getUserByAccount(account);
+        if(admin == null && user == null){
             retJSON = addKeyValue(retJSON , "status" , "APPROVED");
 //            adminDao.insertAdmin(_admin);
         }   else{
             retJSON = addKeyValue(retJSON , "status" , "ACCOUNT_DUPLICATED");
         }
-        System.out.println(retJSON);
+//        System.out.println(retJSON);
         return retJSON;
     }
 }

@@ -38,7 +38,7 @@ public interface OrderDao {
     void UpdateStateAndTimeById(Integer id , String state , Date pay_time);
 
     // 更新信息
-    @Update("update `order` set product_id = #{product_id} , user_id = #{user_id}  ,amount = #{amount}  ,state = #{state} , pay_time = #{pay_time} where id = ")
+    @Update("update `order` set product_id = #{product_id} , user_id = #{user_id}  ,amount = #{amount}  ,state = #{state} , pay_time = #{pay_time} where id = #{id}")
     void update(Order order);
 
     //根据订单编号删除记录

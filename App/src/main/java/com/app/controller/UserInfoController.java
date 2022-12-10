@@ -2,8 +2,10 @@ package com.app.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.app.dao.AdminDao;
+import com.app.dao.BankDao;
 import com.app.dao.UserDao;
 import com.app.domain.Admin;
+import com.app.domain.Bank;
 import com.app.domain.User;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,8 @@ public class UserInfoController {
 
     @Resource
     private UserDao userDao;
+    @Resource
+    private BankDao bankDao;
 
     /**
      * 删除用户
@@ -79,10 +83,19 @@ public class UserInfoController {
         // 更新账户信息
         String newaccount = _user.getAccount();
         user = userDao.getUserByAccount(newaccount);
-        if(user != null && user.getAccount() != _user.getAccount()){
+        if(user != null && user.getUid() != _user.getUid() && user.getAccount() != _user.getAccount()){
             retJSON = addKeyValue(retJSON , "status" , "ACCOUNT_DUPLICATED");
             return retJSON;
         }
+
+        String bankcard = _user.getBank_card();
+        Bank bank = bankDao.getBankByBankCard(bankcard);
+        if(bank == null){
+            retJSON = addKeyValue(retJSON , "status" , "BANKCARD_NOT_FOUND");
+            return retJSON;
+        }
+
+        _user.setBalance(bankDao.getBalanceByCard(bankcard));
 
         userDao.update(_user);
         retJSON = addKeyValue(retJSON , "status" , "APPROVED");
