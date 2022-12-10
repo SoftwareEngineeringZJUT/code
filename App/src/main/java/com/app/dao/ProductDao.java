@@ -16,6 +16,9 @@ public interface ProductDao {
     @Select("select * from product")
     List<Product> getAll();
 
+    // 获取全部已上线的product
+    @Select("select * from product where onsale = 1")
+    List<Product> getAllOnsale();
     // 根据发布者查询商品全部信息
     @Select("select * from product where publisher = #{publisher}")
     List<Product> getProductByPublisher(Integer publisher);
@@ -41,10 +44,10 @@ public interface ProductDao {
 
     // 根据商品id修改商品原子服务流程
     @Update("update product set service_process=#{service_process} where product_id=#{product_id}")
-    void UpdateProcessById(String product_id , String service_process);
+    void UpdateProcessById(Integer product_id , String service_process);
 
     // 根据商品id删除一条记录
     @Delete("delete from product where product_id=#{product_id}")
-    void DeleteById(String product_id);
+    void DeleteById(Integer product_id);
 
 }
