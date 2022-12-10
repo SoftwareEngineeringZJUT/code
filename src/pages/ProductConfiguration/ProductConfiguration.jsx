@@ -3,6 +3,8 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import './index.css';
 import getInitialData from './get-initial-data';
 import Column from './Column';
+import { Tabs } from 'antd';
+import DemoOrganizationGraph from '../../components/DemoOrganizationGraph';
 
 function reorderList(list, startIndex, endIndex) {
     const result = Array.from(list);
@@ -17,9 +19,9 @@ function ProductConfiguration() {
     const [state, setState] = useState(() => getInitialData());
 
     function onDragEnd(result) {
-       
+
         if (!result.destination) {
-            
+
             return;
         }
 
@@ -32,7 +34,7 @@ function ProductConfiguration() {
                 result.source.index,
                 result.destination.index,
             );
-           
+
             setState({
                 ...state,
                 columnOrder,
@@ -91,37 +93,54 @@ function ProductConfiguration() {
                 [newDestinationColumn.id]: newDestinationColumn,
             },
         };
-        console.log('11111',newState)
+        console.log('11111', newState)
 
         setState(newState);
     }
 
 
     return (
-        <div style={{ width: '100%', minHeight: '600px' }}>
-            <DragDropContext onDragEnd={onDragEnd}>
-                <div className="dnd-pro">
-                    <Droppable
-                        droppableId="all-droppables"
-                        direction="horizontal"
-                        type="column"
-                    >
-                        {(provided) => (
-                            <div className="columns" {...provided.droppableProps} ref={provided.innerRef}>
-                                {state.columnOrder.map((columnId, index) => (
-                                    <Column
-                                        key={columnId}
-                                        column={state.columns[columnId]}
-                                        index={index}
-                                    />
-                                ))}
-                                {provided.placeholder}
-                            </div>
-                        )}
-                    </Droppable>
-                </div>
-            </DragDropContext>
-        </div>
+        <>
+            <div style={{ width: '100%', minHeight: '600px' }}>
+                <Tabs
+                    items={[
+                        {
+                            label:'产品配置',
+                            key:'1',
+                            children:
+                                <DragDropContext onDragEnd={onDragEnd}>
+                                    <div className="dnd-pro">
+                                        <Droppable
+                                            droppableId="all-droppables"
+                                            direction="horizontal"
+                                            type="column"
+                                        >
+                                            {(provided) => (
+                                                <div className="columns" {...provided.droppableProps} ref={provided.innerRef}>
+                                                    {state.columnOrder.map((columnId, index) => (
+                                                        <Column
+                                                            key={columnId}
+                                                            column={state.columns[columnId]}
+                                                            index={index}
+                                                        />
+                                                    ))}
+                                                    {provided.placeholder}
+                                                </div>
+                                            )}
+                                        </Droppable>
+                                    </div>
+                                </DragDropContext>
+                        },
+                        {
+                            label:'生成流程图',
+                            key:'2',
+                            children:<DemoOrganizationGraph/>
+                        }
+                    ]}
+
+                />
+            </div>
+        </>
     )
 }
 

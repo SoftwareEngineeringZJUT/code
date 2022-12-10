@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import {useDispatch} from 'react-redux';
 import store from '../../store';
 import { LoginAction } from '../../store/actions/LoginAction';
+import DemoLine from '../../components/DemoLine';
 
 function Home() {
 
@@ -32,6 +33,8 @@ function Home() {
             login()
         }
     },[])
+
+
 
     return (
 
@@ -144,6 +147,7 @@ function Home() {
                 </Carousel>
                 {/* <DemoChart /> */}
             </div>
+            <DemoLine/>
         </>
     )
 }
