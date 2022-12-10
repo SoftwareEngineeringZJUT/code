@@ -174,36 +174,36 @@ public class ProductController {
         return retJSON;
     }
 
-    @PostMapping("/purchaseProduct")
-    public String purchaseProduct(User _user,Product _product,double purchaseVolume)
-    {
-        String retJSON = "{}";
-        User user = userDao.getUserByAccount(_user.getAccount());
-        Product product = productDao.getProductById(_product.getProduct_id());
-        //用户不存在
-        if(user == null)
-        {
-            retJSON = addKeyValue(retJSON , "status" , "USER_NOT_FOUND");
-
-        }
-        //产品不存在
-        else if (product == null || product.getOnsale() == 0)
-        {
-            retJSON = addKeyValue(retJSON , "status" , "PRODUCT_NOT_FOUND");
-        }
-        else
-        {
-            //判断能否支付
-                //产品有余量
-
-                //用户有余额（不判断银行卡了，要求用户把银行卡里的钱充值到余额，只判断余额）
-            //扣款
-
-            //生成订单
-
-            //产品库存减少
-
-        }
-    }
+//    @PostMapping("/purchaseProduct")
+//    public String purchaseProduct(User _user,Product _product,double purchaseVolume)
+//    {
+//        String retJSON = "{}";
+//        User user = userDao.getUserByAccount(_user.getAccount());
+//        Product product = productDao.getProductById(_product.getProduct_id());
+//        //用户不存在
+//        if(user == null)
+//        {
+//            retJSON = addKeyValue(retJSON , "status" , "USER_NOT_FOUND");
+//
+//        }
+//        //产品不存在
+//        else if (product == null || product.getOnsale() == 0)
+//        {
+//            retJSON = addKeyValue(retJSON , "status" , "PRODUCT_NOT_FOUND");
+//        }
+//        else
+//        {
+//            //判断能否支付
+//                //产品有余量
+//
+//                //用户有余额（不判断银行卡了，要求用户把银行卡里的钱充值到余额，只判断余额）
+//            //扣款
+//
+//            //生成订单
+//
+//            //产品库存减少
+//
+//        }
+//    }
 
 }

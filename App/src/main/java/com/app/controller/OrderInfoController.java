@@ -47,7 +47,7 @@ public class OrderInfoController {
     public String deleteOrder(Order order){
         String retJSON = "{}";
 
-        order = orderDao.GetById(order.getUser_id());
+        order = orderDao.GetById(order.getId());
 
         if(order == null){
             retJSON = addKeyValue(retJSON , "status" , "ORDER_NOT_FOUND");
@@ -72,12 +72,12 @@ public class OrderInfoController {
 
         // 用户不存在
         if(admin == null){
-            retJSON = addKeyValue(retJSON , "status" , "ADMIN_NOT_FOUND");
+//            retJSON = addKeyValue(retJSON , "status" , "ADMIN_NOT_FOUND");
             return retJSON;
         }
         List<Order> orderList = orderDao.GetAllOrder();
         retJSON = JSON.toJSONString(orderList);
-        retJSON = addKeyValue(retJSON , "status" , "APPROVED");
+//        retJSON = addKeyValue(retJSON , "status" , "APPROVED");
 
         return retJSON;
     }
@@ -94,12 +94,12 @@ public class OrderInfoController {
 
         // 用户不存在
         if(user == null){
-            retJSON = addKeyValue(retJSON , "status" , "USER_NOT_FOUND");
+//            retJSON = addKeyValue(retJSON , "status" , "USER_NOT_FOUND");
             return retJSON;
         }
         List<Order> orderList = orderDao.GetByUserId(user.getUid());
         retJSON = JSON.toJSONString(orderList);
-        retJSON = addKeyValue(retJSON , "status" , "APPROVED");
+//        retJSON = addKeyValue(retJSON , "status" , "APPROVED");
 
         return retJSON;
     }
