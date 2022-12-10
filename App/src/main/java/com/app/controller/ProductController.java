@@ -2,9 +2,11 @@ package com.app.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.app.dao.AdminDao;
+import com.app.dao.OrderDao;
 import com.app.dao.ProductDao;
 import com.app.dao.UserDao;
 import com.app.domain.Admin;
+import com.app.domain.Order;
 import com.app.domain.Product;
 import com.app.domain.User;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.app.core.util.MyJSONUtil.addKeyValue;
 
@@ -29,6 +34,7 @@ public class ProductController {
      *  产品删除
      *
      *  产品购买
+     *  产品卖出
      *
      *
      */
@@ -39,6 +45,8 @@ public class ProductController {
     private AdminDao adminDao;
     @Resource
     private UserDao userDao;
+    @Resource
+    private OrderDao orderDao;
     final Integer SUPER_ADMIN = 5;
 
     @PostMapping("/adminGetProducts")
@@ -174,6 +182,13 @@ public class ProductController {
         return retJSON;
     }
 
+    /**
+     * 用户买入产品
+     * @param _user
+     * @param _product
+     * @param purchaseVolume
+     * @return retJSON
+     */
     @PostMapping("/purchaseProduct")
     public String purchaseProduct(User _user,Product _product,double purchaseVolume)
     {
@@ -186,24 +201,108 @@ public class ProductController {
             retJSON = addKeyValue(retJSON , "status" , "USER_NOT_FOUND");
 
         }
-        //产品不存在
+        //产品不存在或不再售卖
         else if (product == null || product.getOnsale() == 0)
         {
             retJSON = addKeyValue(retJSON , "status" , "PRODUCT_NOT_FOUND");
         }
-        else
+        //TODO: 可能需要加入判断是否超出每日限额、每人限额啥的，后续待改
+        else if(product.getStock() - product.getSaled() < purchaseVolume)
         {
             //判断能否支付
-                //产品有余量
-
-                //用户有余额（不判断银行卡了，要求用户把银行卡里的钱充值到余额，只判断余额）
+            //产品余量不足
+            retJSON = addKeyValue(retJSON , "status" , "Deficiency_of_allowance");
+        }
+        else if(user.getBalance() < purchaseVolume)
+        {
+            //用户余额不足（不判断银行卡了，要求用户把银行卡里的钱充值到余额，只判断余额）
+            retJSON = addKeyValue(retJSON , "status" , "Lack_of_balance");
+        }
+        else
+        {
             //扣款
+            userDao.updateBalanceByUid(user.getUid(),user.getBalance() - purchaseVolume);
 
             //生成订单
-
+            Order order = new Order(product.getProduct_id(), user.getUid(),purchaseVolume,0,new Date());
+            orderDao.InsertOrder(order);
             //产品库存减少
+            product.setSaled(product.getSaled() - purchaseVolume);
+            productDao.UpdateProductInfo(product);
+            retJSON = addKeyValue(retJSON , "status" , "APPROVED");
 
         }
+        return retJSON;
     }
 
+    /**
+     * 用户卖出持有的产品
+     * @param _user
+     * @param _product
+     * @param saleVolume
+     * @return retJSON
+     */
+    @PostMapping("saleProduct")
+    public String saleProduct(User _user,Product _product,double saleVolume)
+    {
+        String retJSON = "{}";
+        User user = userDao.getUserByAccount(_user.getAccount());
+        Product product = productDao.getProductById(_product.getProduct_id());
+        //用户不存在
+        if(user == null)
+        {
+            retJSON = addKeyValue(retJSON , "status" , "USER_NOT_FOUND");
+
+        }
+        //产品不存在
+        else if (product == null)
+        {
+            retJSON = addKeyValue(retJSON , "status" , "PRODUCT_NOT_FOUND");
+        }
+        //用户是否持有足够库存
+        else if(getHold(user,product.getProduct_id()) < saleVolume)
+        {
+            retJSON = addKeyValue(retJSON , "status" , "PRODUCT_NOT_ENOUGH");
+        }
+        else
+        {
+            //生成订单
+            Order order = new Order(product.getProduct_id(), user.getUid(),saleVolume,1,new Date());
+            orderDao.InsertOrder(order);
+            //增加库存
+            product.setSaled(product.getSaled() + saleVolume);
+            productDao.UpdateProductInfo(product);
+            //加余额
+            userDao.updateBalanceByUid(user.getUid(),user.getBalance() + saleVolume);
+
+            retJSON = addKeyValue(retJSON , "status" , "APPROVED");
+
+        }
+        return retJSON;
+    }
+
+
+    private double getHold(User user , Integer product_id)
+    {
+        List<Order> orderList = orderDao.GetByUserId(user.getUid());
+        Map<Integer , Double> productmap = new HashMap<>();
+        for(Order order:orderList){
+            Integer id = order.getProduct_id();
+            Double num = order.getAmount();
+            Integer state = order.getState();
+            // state = 0 买进
+            if(state == 0 && productmap.get(id) != null){
+                num = productmap.get(id) + num;
+                productmap.remove(id);
+            }
+            // 1 卖出
+            else if(state == 1){
+                num = productmap.get(id) - num;
+                productmap.remove(id);
+            }
+            productmap.put(id , num);
+        }
+
+        return productmap.get(product_id);
+    }
 }

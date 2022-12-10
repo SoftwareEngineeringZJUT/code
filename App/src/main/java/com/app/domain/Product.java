@@ -73,7 +73,7 @@ public class Product {
     private double stock;
 
     /**
-     *  已售出
+     *  售出数量
      */
     @JSONField(ordinal = 11)
     private double saled;
