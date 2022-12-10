@@ -10,12 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
 import static com.app.core.util.MyJSONUtil.addKeyValue;
 
-@Controller
+@RestController
 @RequestMapping("/login")
 public class LoginController {
 
@@ -24,12 +25,49 @@ public class LoginController {
     @Resource
     private  AdminDao adminDao;
 
+    @PostMapping("/roleLogin")
+    public String roleLogin(String account , String password){
+
+        String retJSON = "{}";
+
+        Admin admin = adminDao.getAdminByAccount(account);
+        User user = userDao.getUserByAccount(account);
+
+       if(admin == null && user == null){
+           retJSON = addKeyValue(retJSON , "status" , "NOT_FOUND");
+           return retJSON;
+       }
+
+       else if(admin != null){
+
+           if(admin.getPassword().equals(password)){
+               retJSON = JSON.toJSONString(admin);
+               retJSON = addKeyValue(retJSON , "status" , "APPROVED");
+               retJSON = addKeyValue(retJSON , "role" , "admin");
+           }
+           else {
+               retJSON = addKeyValue(retJSON , "status" , "INFO_ERR");
+           }
+       }
+
+       else{
+           if(user.getPassword().equals(password)){
+               retJSON = JSON.toJSONString(user);
+               retJSON = addKeyValue(retJSON , "status" , "APPROVED");
+               retJSON = addKeyValue(retJSON , "role" , "user");
+           }
+           else {
+               retJSON = addKeyValue(retJSON , "status" , "INFO_ERR");
+           }
+       }
+       return retJSON;
+    }
+
     /**
      * @param _user 用户
      * @return jsonOutput
      */
 
-    @ResponseBody
     @PostMapping("/userLogin")
     public String userLogin(User _user){
 
