@@ -1,9 +1,11 @@
 package com.app.domain;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -33,6 +35,8 @@ public class Product {
     /**
      *  商品期限
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
     @JSONField(ordinal = 4)
     private Date expire;
 
@@ -91,7 +95,7 @@ public class Product {
     private String settlement_type;
 
     /**
-     *  是否上线.1表示上线
+     *  是否上线.0表示未上线,1表示上线
      */
     @JSONField(ordinal = 14)
     private int onsale;

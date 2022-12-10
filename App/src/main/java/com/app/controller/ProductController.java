@@ -115,13 +115,13 @@ public class ProductController {
         // 用户不存在
         if(user == null)
         {
-            retJSON = addKeyValue(retJSON , "status" , "USER_NOT_FOUND");
+//            retJSON = addKeyValue(retJSON , "status" , "USER_NOT_FOUND");
         }
         else
         {
             List<Product> allOnsale = productDao.getAllOnsale();
             retJSON = JSON.toJSONString(allOnsale);
-            retJSON = addKeyValue(retJSON,"status","APPROVED");
+//            retJSON = addKeyValue(retJSON,"status","APPROVED");
         }
 
         return retJSON;
@@ -145,6 +145,7 @@ public class ProductController {
         else
         {
             Product product = productDao.getProductById(_product.getProduct_id());
+//            System.out.println(_product);
             //修改基本信息
             productDao.UpdateProductInfo(_product);
             //修改原子服务流程（假如传进来的原子服务流程非空）
