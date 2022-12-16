@@ -1,0 +1,33 @@
+.tablebox {
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.left-shift-box {
+    position: absolute;
+    height: calc(100% - 172px);
+    width: 100px;
+    /* background-color: red; */
+    bottom: 18px;
+    left: 180px;
+    z-index: 1000;
+}
+
+.left-shift-box:hover {
+    background-color: rgba(74, 50, 228,.5);
+}
+
+.right-shift-box {
+    position: absolute;
+    height: calc(100% - 172px);
+    width: 100px;
+    /* background-color: red; */
+    bottom: 18px;
+    right: 0px;
+    z-index: 1000;
+}
+
+.right-shift-box:hover {
+    background-color: rgba(74, 50, 228,.5);
+}

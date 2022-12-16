@@ -19,7 +19,7 @@ function NavHeader() {
         {label:'产品管理', key:'ProductManagement'},
         {label:'订单管理', key:'OrderManagement'},
         {label:'用户管理', key:'UserManagement'},
-        {label:'权限管理', key:'RightsManagement'},
+        {label:'个人中心', key:'PersonalCenter'},
     ]
 
     const handelClick = ({item, key})=>{
