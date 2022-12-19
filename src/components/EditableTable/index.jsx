@@ -205,6 +205,7 @@ function MoveTable(props) {
             }
         }
     }
+    
     columns.forEach((item) => {
         calcWidth(item)
     });

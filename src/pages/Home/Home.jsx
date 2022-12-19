@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Carousel, message } from 'antd';
 import './index.css';
 import lunbo1 from '../../assets/lunbo1.jpg'
@@ -6,16 +6,19 @@ import lunbo2 from '../../assets/lunbo2.jpg'
 import lunbo3 from '../../assets/lunbo3.jpg'
 import lunbo4 from '../../assets/lunbo4.jpg'
 import { useEffect } from 'react';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import store from '../../store';
 import { LoginAction } from '../../store/actions/LoginAction';
+import { Pie } from '@ant-design/plots';
 import DemoLine from '../../components/DemoLine';
+import { getData } from '../../http/getData';
 
 function Home() {
 
     const dispatch = useDispatch()
-    const {count} = store.getState().LoginReducer
+    const { count } = store.getState().LoginReducer
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
+    const [chartData, setChartData] = useState([])
 
     function login() {
         dispatch(LoginAction('login'))
@@ -23,16 +26,50 @@ function Home() {
     const success = (name) => {
         message.success(`welcome ${name}`)
     };
-   
-    
 
-    useEffect(()=>{
-        if(count === 1){
+    async function getUserAssetDistribution() {
+        let res = (await getData('/statistics/getUserAssetDistribution', {})).data;
+        let newChartData = []
+        for (let key in res) {
+            newChartData.push({
+                type: key,
+                value: res[key],
+            })
+        }
+        setChartData([...newChartData])
+    }
+
+    const config = {
+        appendPadding: 10,
+        data: chartData,
+        angleField: 'value',
+        colorField: 'type',
+        radius: 0.75,
+        label: {
+            type: 'spider',
+            labelHeight: 28,
+            content: '{name}\n{percentage}',
+        },
+        interactions: [
+            {
+                type: 'element-selected',
+            },
+            {
+                type: 'element-active',
+            },
+        ],
+    };
+
+
+
+    useEffect(() => {
+        if (count === 1) {
             console.log(userInfo)
             success(userInfo.real_name)
             login()
         }
-    },[])
+        getUserAssetDistribution()
+    }, [])
 
 
 
@@ -147,7 +184,8 @@ function Home() {
                 </Carousel>
                 {/* <DemoChart /> */}
             </div>
-            <DemoLine/>
+            {/* <DemoLine /> */}
+            <Pie {...config}/>
         </>
     )
 }

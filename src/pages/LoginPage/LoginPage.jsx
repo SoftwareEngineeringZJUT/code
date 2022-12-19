@@ -28,7 +28,7 @@ function LoginPage() {
             account:values.account,
             password:values.password
         }
-        let res = (await getData('/login/userLogin', p)).data
+        let res = (await getData('/login/roleLogin', p)).data
         if(res.status === 'APPROVED'){
             console.log('res',res)
             sessionStorage.setItem('userInfo',JSON.stringify(res))

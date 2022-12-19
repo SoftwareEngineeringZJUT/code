@@ -1,17 +1,35 @@
-import { Button } from 'antd';
-import React, { useState,useEffect } from 'react'
+import { Button, Popconfirm } from 'antd';
+import React, { useState, useEffect } from 'react'
 import EditableTable from '../../components/EditableTable'
+import { getData } from '../../http/getData';
 
 function UserManagement() {
 
     const [dataSource, setdataSource] = useState([])
 
+    async function getUser() {
+        let res = (await getData('/userInfo/getUser', {})).data
+        console.log(res)
+        let newDataSource = res.map((item,index)=>{
+            return {
+                key:index,
+                ...item,
+            }
+        })
+        setdataSource(newDataSource)
+    }
+
+    const handleDelete = (key) => {
+        const newData = dataSource.filter((item) => item.key !== key);
+        setdataSource(newData);
+    };
+ 
     const columns = [
         {
             title: 'index',
             dataIndex: 'key',
             width: 100,
-            editable: true,
+            editable: false,
             fixed: 'left',
             rules: [
                 {
@@ -20,35 +38,37 @@ function UserManagement() {
                 },
             ]
         },
+        // {
+        //     title: 'uid',
+        //     dataIndex: 'uid',
+        //     width:100,
+        //     editable: false,
+        //     rules: [
+        //         {
+        //             required: true,
+        //             message: `lalala is required.`,
+        //         },
+        //     ]
+
+        // },
+        // {
+        //     title:'user_status',
+        //     dataIndex:'user_status',
+        //     width:150,
+        //     editable: true,
+        //     rules: [
+        //         {
+        //             required: true,
+        //             message: `user_status is required.`,
+        //         },
+        //     ]
+
+        // },
         {
-            title: 'Team4G',
-            dataIndex: 'Team4G',
-            editable: true,
-            width: 100,
-            rules: [
-                {
-                    required: true,
-                    message: `2 is required.`,
-                },
-            ]
-        },
-        {
-            title: 'Team5G',
-            dataIndex: 'Team5G',
-            width: 100,
-            editable: true,
-            rules: [
-                {
-                    required: true,
-                    message: `3 is required.`,
-                },
-            ]
-        },
-        {
-            title: 'Account',
-            dataIndex: 'Account',
-            width: 200,
-            editable: true,
+            title:'account',
+            dataIndex:'account',
+            width:150,
+            editable: false,
             rules: [
                 {
                     required: true,
@@ -57,146 +77,142 @@ function UserManagement() {
             ]
         },
         {
-            title: 'Tribe',
-            dataIndex: 'Tribe',
-            width: 200,
+            title:'address',
+            dataIndex:'address',
+            width:150,
             editable: true,
             rules: [
                 {
                     required: true,
-                    message: `2 is required.`,
+                    message: `address is required.`,
                 },
             ]
         },
         {
-            title: 'SG',
-            dataIndex: 'SG',
+            title:'balance',
+            dataIndex:'balance',
+            width:200,
             editable: true,
-            width:80,
             rules: [
                 {
                     required: true,
-                    message: `3 is required.`,
+                    message: `balance is required.`,
                 },
             ]
         },
         {
-            title: 'Name',
-            dataIndex: 'Name',
+            title:'bank_card',
+            dataIndex:'bank_card',
+            width:200,
             editable: true,
-            width:300,
             rules: [
                 {
                     required: true,
-                    message: `Name is required.`,
+                    message: `bank_card is required.`,
+                },
+            ]
+        },
+        // {
+        //     title:'gmt_create',
+        //     dataIndex:'gmt_create',
+        //     width:200,
+        //     editable: true,
+        //     rules: [
+        //         {
+        //             required: true,
+        //             message: `gmt_create is required.`,
+        //         },
+        //     ]
+        // },
+        // {
+        //     title:'gmt_update',
+        //     dataIndex:'gmt_update',
+        //     width:200,
+        //     editable: true,
+        //     rules: [
+        //         {
+        //             required: true,
+        //             message: `gmt_create is required.`,
+        //         },
+        //     ]
+        // },
+        {
+            title:'id_card',
+            dataIndex:'id_card',
+            width:150,
+            editable: true,
+            rules: [
+                {
+                    required: true,
+                    message: `id_card is required.`,
                 },
             ]
         },
         {
-            title: 'Email',
-            dataIndex: 'Email',
+            title:'phone',
+            dataIndex:'phone',
+            width:200,
             editable: true,
-            width:300,
             rules: [
                 {
                     required: true,
-                    message: `Name is required.`,
+                    message: `phone is required.`,
                 },
             ]
         },
         {
-            title: 'Role',
-            dataIndex: 'Role',
+            title:'real_name',
+            dataIndex:'real_name',
+            width:150,
             editable: true,
-            width:100,
             rules: [
                 {
                     required: true,
-                    message: `Role is required.`,
+                    message: `real_name is required.`,
                 },
             ]
         },
         {
-            title: 'Ratio_W',
-            dataIndex: 'Ratio_W',
-            editable: true,
-            width:100,
-            rules: [
-                {
-                    required: true,
-                    message: `Ratio_W is required.`,
-                },
-            ]
-        },
-        {
-            title: 'Ratio_LTE',
-            dataIndex: 'Ratio_LTE',
-            editable: true,
-            width:100,
-            rules: [
-                {
-                    required: true,
-                    message: `Ratio_LTE is required.`,
-                },
-            ]
-        },
-        {
-            title: 'Ratio_5G',
-            dataIndex: 'Ratio_5G',
-            editable: true,
-            width:100,
-            rules: [
-                {
-                    required: true,
-                    message: `Ratio_5G is required.`,
-                },
-            ]
-        },
-    ];
+            title: 'operation',
+            dataIndex: 'operation',
+            width:200,
+            render: (_, record) =>
+              dataSource.length >= 1 ? (
+                <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
+                  <a>Delete</a>
+                </Popconfirm>
+              ) : null,
+          },
+
+    ]
 
     useEffect(() => {
-        let data =[]
-        for(let i=0;i<10;++i){
-            data.push({
-                key: i,
-                Team4G: 'test',
-                Team5G: 'test',
-                Account: 'test',
-                Tribe: 'test',
-                SG: 'test',
-                Name: 'test',
-                Email: 'test',
-                Role: 'test',
-                Ratio_W: 'test',
-                Ratio_LTE: 'test',
-                Ratio_5G: 'test',
-            },)
-        }
-        setdataSource(data)
+        getUser()
     }, [])
-    
+
 
     return (
         <>
-        <Button onClick={()=>{
-            setdataSource([...structuredClone(dataSource),{
-            key: '3',
-            name: 'add',
-            age: 'add',
-            address: 'add',
-        }])}}>add data</Button>
+            <Button onClick={() => {
+                setdataSource([...structuredClone(dataSource), {
+                    key: '3',
+                    name: 'add',
+                    age: 'add',
+                    address: 'add',
+                }])
+            }}>add data</Button>
 
             <EditableTable
                 autoMove={true}
                 dataSource={dataSource}
-                title={'test editable table'}
+                title={'ALL Users'}
                 columns={columns}
                 saveDataHttp={(row) => { console.log(row); }}
                 pagination={{
-                    defaultCurrent:1,
-                    defaultPageSize:20,
-                    total:200,
-                    pageSizeOption:[10,20,50,100]
+                    defaultCurrent: 1,
+                    defaultPageSize: 20,
+                    // total: 200,
+                    // pageSizeOption: [10, 20, 50, 100]
                 }}
             ></EditableTable>
         </>

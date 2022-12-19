@@ -1,12 +1,24 @@
-import React from 'react'
-import { Card } from 'antd'
+import React, { useEffect } from 'react';
+import { Card } from 'antd';
+import { getData } from '../../http/getData';
 import './index.css'
 
 function ProductManagement() {
 
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
+    
+    async function getProducts(){
+        let res = (await getData('/product/adminGetProducts', {account: userInfo.account})).data
+        console.log(res)
+    }
+
     const renderItem = () => {
         
     }
+
+    useEffect(()=>{
+        getProducts()
+    },[])
 
 
     return (
