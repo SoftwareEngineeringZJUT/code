@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.awt.*;
 import java.awt.geom.FlatteningPathIterator;
+import java.lang.reflect.Method;
 import java.util.*;
 import java.util.List;
 
@@ -45,6 +46,22 @@ public class ProductController {
     private BlackListDao blackListDao;
     @Resource
     private WhiteListDao whiteListDao;
+
+
+    private String[] atomServices = {
+            "用户信息检验",       // 0
+            "黑白名控制",        // 1
+            "白名单控制",        // 2
+            "地域购买控制",       // 3
+            "标签控制",         // 4
+            "库存锁定",         // 5
+            "库存释放",         // 6
+            "库存更新",         // 7
+            "证件审查",         // 8
+            "重复购买",         // 9
+            "日志录入",         // 10
+            "利息计算"          // 11
+    };
 
     final Integer SUPER_ADMIN = 5;
 
@@ -307,6 +324,78 @@ public class ProductController {
     }
 
 
+    // 验证基础信息是否符合要求 ，因为有些操作会对数据库进行修改所以要钱提前判断 返回为空就代表正确
+    private String atomServicesValid(User user , Product product){
+        String[] services = product.getService_process().split(";");
+        String ret = "";
+        for(String id:services){
+            // 用户信息检验
+            if(id.equals("0")){
+                if(!userInfoCheck(user))
+                    ret.concat("用户信息错误;");
+            }
+            // 黑名单控制
+            if(id.equals("1")){
+                if(!blackListCheck(user))
+                    ret.concat("在黑名单中;");
+            }
+            // 白名单控制
+            if(id.equals("2")){
+                if(!WhiteListCheck(user))
+                    ret.concat("不在白名单中;");
+            }
+            // 地域购买控制
+            if(id.equals("3")){
+                if(!userLabelCheck(user , product , 2))
+                    ret.concat("地域购买限制;");
+            }
+            // 证件审查
+            if(id.equals("8")){
+                if(!certificateCheck(user))
+                    ret.concat("证件审查问题;");
+            }
+            // 重复购买
+            if(id.equals("9")){
+                if(!rebuyCheck(user , product))
+                    ret.concat("无法重复购买;");
+            }
+        }
+        return ret;
+    }
+
+    // 执行原子服务流程
+    private String atomServicesRun(User user , Product product){
+
+        String ret = atomServicesValid(user , product);
+        if(!ret.equals("")) return ret;
+
+        String[] services = product.getService_process().split(";");
+        HashSet<String> servicesset = new HashSet<>();
+        for(String se:services) servicesset.add(se);
+
+        // 库存锁定
+        if(servicesset.contains("5")){
+            stockLock(product);
+        }
+        // 库存释放
+        if(servicesset.contains("6")){
+            stockRelease(product);
+        }
+        // 库存更新
+        if(servicesset.contains("7")){
+            stockUpdate(product);
+        }
+        // 日志录入
+        if(servicesset.contains("10")){
+            logGenerate();
+        }
+        // 利息计算
+        if(servicesset.contains("11")){
+            interestCal(product , 100.0 , 12);
+        }
+
+        return ret;
+    }
 
 
     // 用户信息检验
@@ -329,25 +418,27 @@ public class ProductController {
     }
 
     // 地域购买控制
-    private Boolean userLocCheck(User user , String loc){
+    private Boolean userLocCheck(User user , Product product){
 
-        if(user.getAddress() == loc) return true;
+        // todo 获取产品的地区
+        String loc = "";
+        if(user.getAddress().equals(loc)) return true;
         return false;
     }
 
     /**
      * 标签控制
      * @param user
-     * @param needlabels
+     * @param product
      * @param option 1 为完全符合 2为部分符合
      * @return
      */
-    private Boolean userLabelCheck(User user , String needlabels , Integer option){
+    private Boolean userLabelCheck(User user , Product product , Integer option){
 
         Integer count = 0;
 
         String[] userlabelist = user.getLabel().split(";");
-        String[] needlabelist = needlabels.split(";");
+        String[] needlabelist = product.getService_process().split(";");
         HashSet<String> labels = new HashSet<>();
         for(String la:needlabelist) labels.add(la);
 
