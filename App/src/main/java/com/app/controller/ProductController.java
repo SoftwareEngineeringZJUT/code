@@ -1,23 +1,17 @@
 package com.app.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.app.dao.AdminDao;
-import com.app.dao.OrderDao;
-import com.app.dao.ProductDao;
-import com.app.dao.UserDao;
-import com.app.domain.Admin;
-import com.app.domain.Order;
-import com.app.domain.Product;
-import com.app.domain.User;
+import com.app.dao.*;
+import com.app.domain.*;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.Date;
-import java.util.HashMap;
+import java.awt.*;
+import java.awt.geom.FlatteningPathIterator;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
 
 import static com.app.core.util.MyJSONUtil.addKeyValue;
 
@@ -47,6 +41,11 @@ public class ProductController {
     private UserDao userDao;
     @Resource
     private OrderDao orderDao;
+    @Resource
+    private BlackListDao blackListDao;
+    @Resource
+    private WhiteListDao whiteListDao;
+
     final Integer SUPER_ADMIN = 5;
 
     @PostMapping("/adminGetProducts")
@@ -306,4 +305,98 @@ public class ProductController {
 
         return productmap.get(product_id);
     }
+
+    // 用户信息检验
+    private Boolean userInfoCheck(User user){
+        return true;
+    }
+
+    // 黑白名控制
+    private Boolean blackListCheck(User user){
+        BlackList blackList = blackListDao.FindUid(user.getUid());
+        if(blackList == null) return true;
+        return false;
+    }
+
+    // 白名单控制
+    private Boolean WhiteListCheck(User user){
+        WhiteList whiteList = whiteListDao.FindUid(user.getUid());
+        if(whiteList == null) return false;
+        return true;
+    }
+
+    // 地域购买控制
+    private Boolean userLocCheck(User user , String loc){
+
+        if(user.getAddress() == loc) return true;
+        return false;
+    }
+
+    /**
+     * 标签控制
+     * @param user
+     * @param needlabels
+     * @param option 1 为完全符合 2为部分符合
+     * @return
+     */
+    private Boolean userLabelCheck(User user , String needlabels , Integer option){
+
+        Integer count = 0;
+
+        String[] userlabelist = user.getLabel().split(";");
+        String[] needlabelist = needlabels.split(";");
+        HashSet<String> labels = new HashSet<>();
+        for(String la:needlabelist) labels.add(la);
+
+        Integer labelnum = needlabelist.length;
+
+        for(String la:userlabelist) {
+            if(labels.contains(la)) ++count;
+        }
+
+        // 完全符合
+        if(option == 1) {
+            return (count == labelnum);
+        }
+        // 部分符合
+        else{
+            return (count > 0);
+        }
+    }
+
+    // 库存锁定
+    private Boolean stockLock(Product product){
+        return true;
+    }
+
+    // 库存释放
+    private Boolean stockRelease(Product product){
+        return true;
+    }
+
+    // 库存更新
+    private Boolean stockUpdate(Product product){
+        return true;
+    }
+
+    // 证件审查
+    private Boolean certificateCheck(User user){
+        return true;
+    }
+
+    //重复购买
+    private Boolean rebuyCheck(User user){
+        return true;
+    }
+
+    // 日志录入
+    private Boolean logGenerate(){
+        return true;
+    }
+
+    // 利息计算
+    private Boolean interestCal(Product product){
+        return true;
+    }
+
 }

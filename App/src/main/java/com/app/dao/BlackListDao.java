@@ -1,5 +1,6 @@
 package com.app.dao;
 
+import com.app.domain.BlackList;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -12,8 +13,8 @@ public interface BlackListDao {
     void InsertUid(Integer uid);
 
     //查询有无uid
-    @Select("select uid from blacklist where uid = #{uid}")
-    Integer FindUid(Integer uid);
+    @Select("select * from blacklist where uid = #{uid}")
+    BlackList FindUid(Integer uid);
 
     //根据uid删除记录
     @Delete("delete from blacklist where uid=#{uid}")

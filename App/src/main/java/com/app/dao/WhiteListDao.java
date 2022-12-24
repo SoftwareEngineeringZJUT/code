@@ -1,5 +1,6 @@
 package com.app.dao;
 
+import com.app.domain.WhiteList;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -12,8 +13,8 @@ public interface WhiteListDao {
     void InsertUid(Integer uid);
 
     //查询有无uid
-    @Select("select uid from whitelist where uid = #{uid}")
-    Integer FindUid(Integer uid);
+    @Select("select * from whitelist where uid = #{uid}")
+    WhiteList FindUid(Integer uid);
 
     //根据uid删除记录
     @Delete("delete from whitelist where uid=#{uid}")
