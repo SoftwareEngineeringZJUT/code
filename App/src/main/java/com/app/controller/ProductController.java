@@ -306,6 +306,9 @@ public class ProductController {
         return productmap.get(product_id);
     }
 
+
+
+
     // 用户信息检验
     private Boolean userInfoCheck(User user){
         return true;
@@ -366,16 +369,21 @@ public class ProductController {
 
     // 库存锁定
     private Boolean stockLock(Product product){
+        product.setOnsale(0);
+        productDao.UpdateProductInfo(product);
         return true;
     }
 
     // 库存释放
     private Boolean stockRelease(Product product){
+        product.setOnsale(1);
+        productDao.UpdateProductInfo(product);
         return true;
     }
 
     // 库存更新
     private Boolean stockUpdate(Product product){
+        productDao.UpdateProductInfo(product);
         return true;
     }
 
@@ -385,17 +393,27 @@ public class ProductController {
     }
 
     //重复购买
-    private Boolean rebuyCheck(User user){
+    private Boolean rebuyCheck(User user , Product product){
+        List<Order> orderList;
+        orderList = orderDao.GetByUserId(user.getUid());
+        for(Order order:orderList){
+            if(order.getProduct_id().equals(product.getProduct_id()) )
+                return false;
+        }
         return true;
     }
 
     // 日志录入
     private Boolean logGenerate(){
+
         return true;
     }
 
     // 利息计算
-    private Boolean interestCal(Product product){
+    private Boolean interestCal(Product product , Double amount , Integer months){
+
+        Double interest = product.getIncrement() * amount * months / 12;
+
         return true;
     }
 
