@@ -332,32 +332,32 @@ public class ProductController {
             // 用户信息检验
             if(id.equals("0")){
                 if(!userInfoCheck(user))
-                    ret.concat("用户信息错误;");
+                    ret = ret.concat("用户信息错误;");
             }
             // 黑名单控制
             if(id.equals("1")){
                 if(!blackListCheck(user))
-                    ret.concat("在黑名单中;");
+                    ret = ret.concat("在黑名单中;");
             }
             // 白名单控制
             if(id.equals("2")){
                 if(!WhiteListCheck(user))
-                    ret.concat("不在白名单中;");
+                    ret = ret.concat("不在白名单中;");
             }
             // 地域购买控制
             if(id.equals("3")){
                 if(!userLabelCheck(user , product , 2))
-                    ret.concat("地域购买限制;");
+                    ret = ret.concat("地域购买限制;");
             }
             // 证件审查
             if(id.equals("8")){
                 if(!certificateCheck(user))
-                    ret.concat("证件审查问题;");
+                    ret = ret.concat("证件审查问题;");
             }
             // 重复购买
             if(id.equals("9")){
                 if(!rebuyCheck(user , product))
-                    ret.concat("无法重复购买;");
+                    ret = ret.concat("无法重复购买;");
             }
         }
         return ret;
