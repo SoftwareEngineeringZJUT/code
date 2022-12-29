@@ -420,8 +420,9 @@ public class ProductController {
     // 地域购买控制
     private Boolean userLocCheck(User user , Product product){
 
-        // todo 获取产品的地区
-        String loc = "";
+        //获取产品的地区
+        String loc;
+        loc = product.getLocation();
         if(user.getAddress().equals(loc)) return true;
         return false;
     }

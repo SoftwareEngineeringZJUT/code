@@ -113,18 +113,24 @@ public class Product {
     private String service_process;
 
     /**
+     * 限制可购买区域
+     */
+    @JSONField(ordinal = 17)
+    private String location;
+
+    /**
      * 创建时间
      */
-    @JSONField(ordinal = 17 , format="yyyy-MM-dd HH:mm:ss.SSS")
+    @JSONField(ordinal = 18 , format="yyyy-MM-dd HH:mm:ss.SSS")
     private Date gmt_create;
 
     /**
      * 更新时间
      */
-    @JSONField(ordinal = 18 , format="yyyy-MM-dd HH:mm:ss.SSS")
+    @JSONField(ordinal = 19 , format="yyyy-MM-dd HH:mm:ss.SSS")
     private Date gmt_update;
 
-    public Product(String name, Integer publisher, Date expire, float annual_rate, double start_deposit, double increment, double personal_limit, double daily_limit, double stock, double saled, int risk, String settlement_type, int onsale, String description, String service_process, Date gmt_create, Date gmt_update) {
+    public Product( String name, Integer publisher, Date expire, float annual_rate, double start_deposit, double increment, double personal_limit, double daily_limit, double stock, double saled, int risk, String settlement_type, int onsale, String description, String service_process, String location, Date gmt_create, Date gmt_update) {
         this.product_id = null;
         this.name = name;
         this.publisher = publisher;
@@ -141,6 +147,7 @@ public class Product {
         this.onsale = onsale;
         this.description = description;
         this.service_process = service_process;
+        this.location = location;
         this.gmt_create = gmt_create;
         this.gmt_update = gmt_update;
     }
