@@ -8,11 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.awt.*;
-import java.awt.geom.FlatteningPathIterator;
-import java.lang.reflect.Method;
 import java.util.*;
-import java.util.List;
 
 import static com.app.core.util.MyJSONUtil.addKeyValue;
 
@@ -216,15 +212,25 @@ public class ProductController {
         if(user == null)
         {
             retJSON = addKeyValue(retJSON , "status" , "USER_NOT_FOUND");
-
+            return retJSON;
         }
         //产品不存在或不再售卖
-        else if (product == null || product.getOnsale() == 0)
+        if (product == null || product.getOnsale() == 0)
         {
             retJSON = addKeyValue(retJSON , "status" , "PRODUCT_NOT_FOUND");
+            return retJSON;
         }
+
+        // 执行原子流程
+        String atomStatus = atomServicesRun(user , product);
+        if(!atomStatus.equals("")){
+            retJSON = addKeyValue(retJSON , "status" , atomStatus);
+            return retJSON;
+        }
+
+
         //TODO: 可能需要加入判断是否超出每日限额、每人限额啥的，后续待改
-        else if(product.getStock() - product.getSaled() < purchaseVolume)
+        if(product.getStock() - product.getSaled() < purchaseVolume)
         {
             //判断能否支付
             //产品余量不足
