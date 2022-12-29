@@ -330,7 +330,7 @@ public class ProductController {
     }
 
 
-    // 验证基础信息是否符合要求 ，因为有些操作会对数据库进行修改所以要钱提前判断 返回为空就代表正确
+    // 验证基础信息是否符合要求 ，因为有些操作会对数据库进行修改所以要提前判断 返回为空就代表正确
     private String atomServicesValid(User user , Product product){
         String[] services = product.getService_process().split(";");
         String ret = "";
