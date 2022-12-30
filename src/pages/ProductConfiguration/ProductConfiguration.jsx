@@ -5,6 +5,7 @@ import getInitialData from './get-initial-data';
 import Column from './Column';
 import { Tabs } from 'antd';
 import DemoOrganizationGraph from '../../components/DemoOrganizationGraph';
+import DemoFlowAnalysisGraph from '../../components/DemoFlowAnalysisGraph/DemoFlowAnalysisGraph';
 
 function reorderList(list, startIndex, endIndex) {
     const result = Array.from(list);
@@ -17,6 +18,7 @@ function reorderList(list, startIndex, endIndex) {
 
 function ProductConfiguration() {
     const [state, setState] = useState(() => getInitialData());
+    const [serviceProcess, setServiceProcess] = useState([])
 
     function onDragEnd(result) {
 
@@ -50,7 +52,6 @@ function ProductConfiguration() {
                 result.source.index,
                 result.destination.index,
             );
-
             // updating column entry
             const newState = {
                 ...state,
@@ -62,6 +63,14 @@ function ProductConfiguration() {
                     },
                 },
             };
+            // console.log('111', newState)
+            let itemL = newState.columns['column-1'].items;
+            // let newProcess = []
+            // itemL.forEach((item) => {
+            //     newProcess.push(item.id)
+            // })
+            // console.log(newProcess)
+            setServiceProcess(itemL)
             setState(newState);
             return;
         }
@@ -93,7 +102,14 @@ function ProductConfiguration() {
                 [newDestinationColumn.id]: newDestinationColumn,
             },
         };
-        console.log('11111', newState)
+        // console.log('2222', newState)
+        let itemL = newState.columns['column-1'].items;
+        console.log(itemL)
+        // let newProcess = []
+        // itemL.forEach((item) => {
+        //     newProcess.push(item.id)
+        // })
+        setServiceProcess(itemL)
 
         setState(newState);
     }
@@ -105,8 +121,8 @@ function ProductConfiguration() {
                 <Tabs
                     items={[
                         {
-                            label:'产品配置',
-                            key:'1',
+                            label: '产品配置',
+                            key: '1',
                             children:
                                 <DragDropContext onDragEnd={onDragEnd}>
                                     <div className="dnd-pro">
@@ -132,9 +148,14 @@ function ProductConfiguration() {
                                 </DragDropContext>
                         },
                         {
-                            label:'生成流程图',
-                            key:'2',
-                            children:<DemoOrganizationGraph configL={{}}/>
+                            label: '生成流程图',
+                            key: '2',
+                            children: <DemoFlowAnalysisGraph serviceProccess={serviceProcess}/>
+                        },
+                        {
+                            label: '产品基本信息填写',
+                            key: '3',
+                            children: <></>
                         }
                     ]}
 
