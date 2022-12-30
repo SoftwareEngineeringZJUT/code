@@ -7,6 +7,8 @@ const { Meta } = Card
 function PersonalCenter() {
 
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
+    let isAdmin = false;
+    if(userInfo.role === 'admin')isAdmin = true;
 
     const data = [
         {
@@ -39,7 +41,7 @@ function PersonalCenter() {
                     title={userInfo.real_name}
                     description={<>
                         {userInfo.phone}
-                        <Statistic title="Account Balance (CNY)" value={userInfo.balance} precision={2}></Statistic>
+                        {isAdmin? '管理员':<Statistic title="Account Balance (CNY)" value={userInfo.balance} precision={2}></Statistic>}
                     </>}
                 >
                 </Meta>

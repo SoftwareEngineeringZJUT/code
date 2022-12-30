@@ -134,7 +134,7 @@ function ProductConfiguration() {
                         {
                             label:'生成流程图',
                             key:'2',
-                            children:<DemoOrganizationGraph/>
+                            children:<DemoOrganizationGraph configL={{}}/>
                         }
                     ]}
 

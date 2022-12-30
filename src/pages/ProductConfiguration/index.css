@@ -36,7 +36,7 @@
   margin-right: 20px;
   /* border: var(--borderWidth) solid #0ff0fc; */
   border-radius: var(--borderRadius);
-  background-color: rgb(238,238,244);
+  background-color: rgb(238, 238, 244);
 }
 
 .column-title {
@@ -59,16 +59,19 @@
 }
 
 .task-list::-webkit-scrollbar {
-  width: 1em;
+  width: 10px;
+	height: 10px;
 }
 
 .task-list::-webkit-scrollbar-track {
-  background-color: var(--greyLight);
-  borderradius: var(--borderRadius);
+  background: #fff;
+  border-radius: 2px;
 }
 
 .task-list::-webkit-scrollbar-thumb {
-  background-color: var(--pink);
+  background: rgb(205, 206, 206);
+
+  border-radius: 10px;
 }
 
 .item {

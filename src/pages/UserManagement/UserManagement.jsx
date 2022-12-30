@@ -19,25 +19,32 @@ function UserManagement() {
         setdataSource(newDataSource)
     }
 
+    async function deleteUser(userInfo) {
+        let res = (await getData('/userInfo/delUser',{
+            uid:userInfo.uid,
+            account:userInfo.account,
+        })).data
+    }
+
     const handleDelete = (key) => {
         const newData = dataSource.filter((item) => item.key !== key);
         setdataSource(newData);
     };
  
     const columns = [
-        {
-            title: 'index',
-            dataIndex: 'key',
-            width: 100,
-            editable: false,
-            fixed: 'left',
-            rules: [
-                {
-                    required: true,
-                    message: `lalala is required.`,
-                },
-            ]
-        },
+        // {
+        //     title: 'index',
+        //     dataIndex: 'key',
+        //     width: 100,
+        //     editable: false,
+        //     fixed: 'left',
+        //     rules: [
+        //         {
+        //             required: true,
+        //             message: `lalala is required.`,
+        //         },
+        //     ]
+        // },
         // {
         //     title: 'uid',
         //     dataIndex: 'uid',
@@ -69,6 +76,7 @@ function UserManagement() {
             dataIndex:'account',
             width:150,
             editable: false,
+            fixed:'left',
             rules: [
                 {
                     required: true,
@@ -79,7 +87,7 @@ function UserManagement() {
         {
             title:'address',
             dataIndex:'address',
-            width:150,
+            width:200,
             editable: true,
             rules: [
                 {
@@ -186,6 +194,23 @@ function UserManagement() {
 
     ]
 
+    async function updateUserInfo(userInfo){
+        let res = (await getData('/userInfo/updateUser',{
+            uid:userInfo.uid,
+            account:userInfo.account,
+            real_name:userInfo.real_name,
+            password:userInfo.password,
+            id_card:userInfo.id_card,
+            address:userInfo.address,
+            bank_card:userInfo.bank_card,
+            phone:userInfo.phone,
+            user_status:userInfo.user_status,
+            balance:userInfo.balance,
+            label:userInfo.label,
+        })).data
+        console.log(res)
+    }
+
     useEffect(() => {
         getUser()
     }, [])
@@ -195,7 +220,7 @@ function UserManagement() {
         <>
             <Button onClick={() => {
                 setdataSource([...structuredClone(dataSource), {
-                    key: '3',
+                    key: dataSource.length,
                     name: 'add',
                     age: 'add',
                     address: 'add',
@@ -207,7 +232,7 @@ function UserManagement() {
                 dataSource={dataSource}
                 title={'ALL Users'}
                 columns={columns}
-                saveDataHttp={(row) => { console.log(row); }}
+                saveDataHttp={(row) => { updateUserInfo(row) }}
                 pagination={{
                     defaultCurrent: 1,
                     defaultPageSize: 20,
