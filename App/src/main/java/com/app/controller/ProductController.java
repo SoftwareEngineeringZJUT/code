@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.net.URLDecoder;
 import java.util.*;
 
 import static com.app.core.util.MyJSONUtil.addKeyValue;
@@ -96,7 +97,9 @@ public class ProductController {
     public String addProduct(Admin _admin , Product product){
         String retJSON = "{}";
         Admin admin = adminDao.getAdminByAccount(_admin.getAccount());
-
+        product.setName( URLDecoder.decode(product.getName()));
+//        product.setExpire( URLDecoder.decode(String.valueOf(product.getExpire())));
+        product.setDescription( URLDecoder.decode(product.getDescription()));
         //管理员不存在
         if(admin == null){
             retJSON = addKeyValue(retJSON , "status" , "ADMIN_NOT_FOUND");
