@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : mysql
+ Source Server         : student
  Source Server Type    : MySQL
- Source Server Version : 80031
+ Source Server Version : 80028
  Source Host           : localhost:3306
  Source Schema         : softwaredb
 
  Target Server Type    : MySQL
- Target Server Version : 80031
+ Target Server Version : 80028
  File Encoding         : 65001
 
- Date: 10/12/2022 15:19:13
+ Date: 29/12/2022 22:15:59
 */
 
 SET NAMES utf8mb4;
@@ -31,7 +31,7 @@ CREATE TABLE `admin`  (
   `gmt_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`admin_id`) USING BTREE,
   UNIQUE INDEX `ad`(`account`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理员' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1004 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理员' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin
@@ -44,6 +44,9 @@ INSERT INTO `admin` VALUES (5, 'a119r', 'Behw', '阎正豪', 1, '2022-11-19 15:0
 INSERT INTO `admin` VALUES (6, 'U4B', 'tz', '刘鹏飞', 2, '2022-11-15 00:16:04', '2022-02-07 18:01:24');
 INSERT INTO `admin` VALUES (7, 'nw', 'GQD', '陈立果', 3, '2022-05-18 08:41:14', '2022-06-10 21:08:20');
 INSERT INTO `admin` VALUES (10, 'OP', 'djk2D', '阎子默', 2, '2022-01-13 05:25:30', '2022-12-10 13:44:00');
+INSERT INTO `admin` VALUES (1001, 'admin01', 'ad0001', '姜辉', 10, '2022-12-29 16:56:41', '2022-12-29 16:56:41');
+INSERT INTO `admin` VALUES (1002, 'admin02', 'ad0002', '徐坤', 4, '2022-12-29 16:56:41', '2022-12-29 16:56:41');
+INSERT INTO `admin` VALUES (1003, 'admin03', 'ad0003', '王梅', 3, '2022-12-29 16:56:41', '2022-12-29 16:56:41');
 
 -- ----------------------------
 -- Table structure for bank
@@ -64,6 +67,26 @@ INSERT INTO `bank` VALUES ('121355838518641', 100.00, '2022-12-09 17:31:54', '20
 INSERT INTO `bank` VALUES ('17111', 0.01, '2022-12-09 17:50:34', '2022-12-09 17:50:50');
 INSERT INTO `bank` VALUES ('176986322451600', 0.00, '2022-12-09 17:49:59', '2022-12-09 17:49:59');
 INSERT INTO `bank` VALUES ('176986322451631', 100.00, '2022-12-09 17:31:54', '2022-12-09 17:31:54');
+INSERT INTO `bank` VALUES ('2020031512010001', 20000000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512020002', 10000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512030003', 50000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512040004', 30000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512050005', 1000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512060006', 100.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512070007', 3000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512080008', 50000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512090009', 120000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512100010', 500000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512110011', 200000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512120012', 100000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512130013', 700000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512140014', 60000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512150015', 20000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512160016', 40000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512170017', 50000000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512180018', 5000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512190019', 40000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
+INSERT INTO `bank` VALUES ('2020031512200020', 10000.00, '2022-12-29 16:21:24', '2022-12-29 16:21:24');
 INSERT INTO `bank` VALUES ('215166347866352', 100.00, '2022-12-09 17:31:54', '2022-12-09 17:31:54');
 INSERT INTO `bank` VALUES ('251243258899898', 100.00, '2022-12-09 17:31:54', '2022-12-09 17:31:54');
 INSERT INTO `bank` VALUES ('262854179319773', 100.00, '2022-12-09 17:31:54', '2022-12-09 17:31:54');
@@ -97,8 +120,6 @@ CREATE TABLE `blacklist`  (
 -- ----------------------------
 -- Records of blacklist
 -- ----------------------------
-INSERT INTO `blacklist` VALUES (21, '2022-12-09 16:42:24', '2022-12-09 17:52:21');
-INSERT INTO `blacklist` VALUES (22, '2022-12-09 16:42:24', '2022-12-09 17:52:28');
 
 -- ----------------------------
 -- Table structure for order
@@ -118,33 +139,11 @@ CREATE TABLE `order`  (
   INDEX `product`(`product_id`) USING BTREE,
   CONSTRAINT `id` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 221018021 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '订单表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 221018023 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '订单表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of order
 -- ----------------------------
-INSERT INTO `order` VALUES (221018001, 2, 25, 640, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:38', '2022-12-09 19:24:51');
-INSERT INTO `order` VALUES (221018002, 1, 25, 47701, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:41', '2022-12-09 19:24:47');
-INSERT INTO `order` VALUES (221018003, 3, 25, 6, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:56', '2022-12-09 19:24:48');
-INSERT INTO `order` VALUES (221018004, 3, 25, 569724, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:57', '2022-12-09 19:24:48');
-INSERT INTO `order` VALUES (221018005, 3, 25, 439337, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:57', '2022-12-09 19:24:48');
-INSERT INTO `order` VALUES (221018006, 3, 25, 34166783, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:58', '2022-12-09 19:24:52');
-INSERT INTO `order` VALUES (221018007, 3, 25, 10197346, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:44', '2022-12-09 19:24:52');
-INSERT INTO `order` VALUES (221018008, 2, 25, 5, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:59', '2022-12-09 19:24:52');
-INSERT INTO `order` VALUES (221018009, 1, 25, 865, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:45', '2022-12-09 19:24:53');
-INSERT INTO `order` VALUES (221018010, 1, 25, 67528, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:46', '2022-12-09 19:24:53');
-INSERT INTO `order` VALUES (221018011, 1, 25, 5604, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:46', '2022-12-09 19:24:53');
-INSERT INTO `order` VALUES (221018012, 2, 25, 576510, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:47', '2022-12-09 19:24:54');
-INSERT INTO `order` VALUES (221018013, 3, 25, 3586660478, 000, '2022-12-09 19:24:39', '2022-11-30 17:58:01', '2022-12-09 19:24:54');
-INSERT INTO `order` VALUES (221018014, 3, 25, 771655862, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:48', '2022-12-09 19:24:56');
-INSERT INTO `order` VALUES (221018015, 1, 25, 1400060, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:49', '2022-12-09 19:24:56');
-INSERT INTO `order` VALUES (221018016, 2, 25, 8008692, 000, '2022-12-09 19:24:39', '2022-11-30 17:58:02', '2022-12-09 19:24:55');
-INSERT INTO `order` VALUES (221018017, 3, 25, 62408318, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:50', '2022-12-09 19:24:50');
-INSERT INTO `order` VALUES (221018018, 2, 25, 794218134, 000, '2022-12-09 19:24:39', '2022-11-30 17:57:51', '2022-12-09 19:24:50');
-INSERT INTO `order` VALUES (221018019, 3, 25, 6, 000, '2022-12-09 19:24:39', '2022-11-30 17:58:04', '2022-12-09 19:24:49');
-INSERT INTO `order` VALUES (221018020, 3, 25, 576, 000, '2022-12-09 19:39:39', '2022-11-30 17:57:55', '2022-12-10 14:53:35');
-INSERT INTO `order` VALUES (221018021, 2, 30, 100, 000, '2022-11-30 17:57:41', '2022-12-10 14:51:51', '2022-12-10 14:51:51');
-INSERT INTO `order` VALUES (221018022, 2, 30, 100, 000, '2025-11-30 17:57:41', '2022-12-10 14:52:13', '2022-12-10 14:52:13');
 
 -- ----------------------------
 -- Table structure for product
@@ -172,7 +171,7 @@ CREATE TABLE `product`  (
   PRIMARY KEY (`product_id`) USING BTREE,
   INDEX `pub`(`publisher`) USING BTREE,
   CONSTRAINT `pub` FOREIGN KEY (`publisher`) REFERENCES `admin` (`admin_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '产品表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 2006 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '产品表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of product
@@ -180,6 +179,81 @@ CREATE TABLE `product`  (
 INSERT INTO `product` VALUES (1, '请输入商品名称', 2, '2022-09-27 02:54:41', 69154.4, 65488039, 29594075, 75381, 3760, 53975, 0000000000, 964888071, 'pI', 1, '关于商品的描述。。。', 'DMB', '2022-12-01 16:13:38', '2022-12-01 16:13:38');
 INSERT INTO `product` VALUES (2, '请输入商品名称', 2, '2022-12-08 01:31:01', 55647.1, 4312, 442050627, 13039, 11246, 39265, 0000000000, 48504, 'Ba', 1, '关于商品的描述。。。', '6fD', '2022-12-01 16:11:51', '2022-12-01 16:11:51');
 INSERT INTO `product` VALUES (3, '请输入商品名称', 2, '2022-08-02 21:40:41', 24093.2, 82489051, 528785632, 39124, 1352, 60121, 0000000000, 994531655, 'C81F1', 0, '关于商品的描述。。。', 'gI', '2022-12-01 16:44:58', '2022-12-01 16:44:58');
+INSERT INTO `product` VALUES (2001, '产品A', 1002, '2022-11-14 16:51:25', 1.82, 50, 50, 200000, 20000, 3000, 0000000010, 4, '到期结息', 1, '说明A', '1;2;4;6;8;9;7;3;5;10;11', '2022-12-29 17:05:47', '2022-12-29 17:05:47');
+INSERT INTO `product` VALUES (2002, '产品B', 1002, '2022-11-14 16:51:25', 1.83, 50, 50, 100000, 10000, 1000, 0000000400, 2, '到期结息', 1, '说明B', '1;2;3;4;5;6;7;8;9;10;11', '2022-12-29 17:05:47', '2022-12-29 17:05:47');
+INSERT INTO `product` VALUES (2003, '产品C', 1002, '2022-11-14 16:51:25', 1.62, 50, 50, 100000, 10000, 2000, 0000001000, 2, '到期结息', 1, '说明C', '1;3;1;5;4;6;7;8;9;11;10', '2022-12-29 17:05:47', '2022-12-29 17:05:47');
+INSERT INTO `product` VALUES (2004, '产品D', 1003, '2022-11-14 16:51:25', 1.66, 50, 50, 300000, 10000, 5000, 0000002000, 5, '到期结息', 1, '说明D', '2;3;4;5;1;6;8;7;9;10;11', '2022-12-29 17:05:47', '2022-12-29 17:05:47');
+INSERT INTO `product` VALUES (2005, '产品E', 1003, '2022-11-14 16:51:25', 1.67, 50, 50, 500000, 10000, 1000, 0000000200, 3, '到期结息', 1, '说明E 6', '7;8;9;1;2;3;4;5;10;11', '2022-12-29 17:05:47', '2022-12-29 17:05:47');
+
+-- ----------------------------
+-- Table structure for question
+-- ----------------------------
+DROP TABLE IF EXISTS `question`;
+CREATE TABLE `question`  (
+  `type` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `number` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `contant` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `optionA` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `optionB` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `optionC` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `optionD` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `ifsend` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `howmanyA` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `howmanyB` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `howmanyC` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `howmanyD` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of question
+-- ----------------------------
+INSERT INTO `question` VALUES ('option', '02', '影响你学习的因素是什么', 'A.教学形式', 'B.周围同学', 'C.电子产品', 'D.其他因素', 'yes', '9', '8', '5', '3');
+INSERT INTO `question` VALUES ('option', '03', '你对本课程的知识掌握情况如何？', 'A.非常差', 'B.一般般', 'C.还行', 'D.很好', 'yes', '7', '11', '3', '3');
+INSERT INTO `question` VALUES ('option', '04', '你对哪种教学方式比较感兴趣？', 'A.ppt', 'B.粉笔板述', 'C.图片展示', 'D.视频展示', 'yes', '5', '7', '8', '4');
+INSERT INTO `question` VALUES ('option', '05', '你对这门课成绩满意程度如何？', 'A.不满意', 'B.一般般', 'C.还可以', 'D.很满意', 'yes', '1', '1', '1', '1');
+INSERT INTO `question` VALUES ('option', '06', '你觉得这门课程老师教学效果如何？', 'A.不好', 'B.一般', 'C.还可以', 'D.非常好', 'yes', '2', '1', '1', '0');
+INSERT INTO `question` VALUES ('option', '08', '你感觉这门课程锻炼你什么能力？', 'A.独立思考能力', 'B.合作能力', 'C.创作能力', 'D.思维能力', 'yes', '1', '3', '0', '0');
+INSERT INTO `question` VALUES ('fill', '09', '你有什么好的学习方法可以分享吗？', '', '0', '0', '0', 'yes', '0', '0', '0', '0');
+INSERT INTO `question` VALUES ('fill', '10', '你对教学老师有什么建议吗？', '', '0', '0', '0', 'yes', '0', '0', '0', '0');
+INSERT INTO `question` VALUES ('fill', '11', '你觉得这门课以后发展如何？', '无', '0', '0', '0', 'yes', '0', '0', '0', '0');
+INSERT INTO `question` VALUES ('option', '77', '123', 'A.2', 'B.2', 'C.2', 'D.2', 'yes', '0', '0', '0', '0');
+INSERT INTO `question` VALUES ('fill', '01', '1312', '0', '0', '0', '0', 'yes', '0', '0', '0', '0');
+
+-- ----------------------------
+-- Table structure for student
+-- ----------------------------
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE `student`  (
+  `sname` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `snumber` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `spassword` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of student
+-- ----------------------------
+INSERT INTO `student` VALUES ('李四', 'lisi', '123');
+INSERT INTO `student` VALUES ('王五', 'wangwu', '123');
+INSERT INTO `student` VALUES ('张三', 'zhangsan', '123');
+INSERT INTO `student` VALUES ('王五', 'wangwu', '123');
+INSERT INTO `student` VALUES ('', 'bu', '123');
+
+-- ----------------------------
+-- Table structure for teacher
+-- ----------------------------
+DROP TABLE IF EXISTS `teacher`;
+CREATE TABLE `teacher`  (
+  `tname` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `tnumber` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `tpassword` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of teacher
+-- ----------------------------
+INSERT INTO `teacher` VALUES ('管理1', 'guanli1', '123');
+INSERT INTO `teacher` VALUES ('管理2', 'guanli2', '123');
+INSERT INTO `teacher` VALUES ('管理3', 'guanli3', '123');
 
 -- ----------------------------
 -- Table structure for user
@@ -203,30 +277,75 @@ CREATE TABLE `user`  (
   UNIQUE INDEX `acc`(`account`) USING BTREE COMMENT '唯一',
   INDEX `bank_card`(`bank_card`) USING BTREE,
   CONSTRAINT `bank_card` FOREIGN KEY (`bank_card`) REFERENCES `bank` (`bank_card`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户表信息' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3021 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户表信息' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (21, 'ababa', 'password', '王嘉懿', '11111', '河南', '949253319326529', '15833045629', '0', 00000000000205986079, 'nFvZ', '2022-12-03 14:51:15', '2022-12-10 15:01:42');
-INSERT INTO `user` VALUES (22, '夏明辉', 'password', '陶远航', '11111', '安徽', '924332441159241', '15744061205', '0', 00000000000063117416, 'HAuO', '2022-11-30 17:20:06', '2022-11-30 17:20:06');
-INSERT INTO `user` VALUES (23, '叶志强', 'password', '尹鸿涛', '11111', '福建', '523357367145629', '13952577250', '0', 00000000000000000001, 'CCA3', '2022-11-30 17:20:07', '2022-11-30 17:20:07');
-INSERT INTO `user` VALUES (24, '夏天翊', 'password', '钱天磊', '11111', '重庆', '545741819458527', '13752132663', '0', 00000000000000912623, 'e6sQ', '2022-11-30 17:20:07', '2022-11-30 17:20:07');
-INSERT INTO `user` VALUES (25, '熊琪', 'password', '黎子默', '11111', '江苏', '585576364182136', '13047413377', '0', 00000000000000076065, 'kk', '2022-11-30 17:20:08', '2022-11-30 17:20:08');
-INSERT INTO `user` VALUES (26, '孙笑愚', 'password', '梁昊强', '11111', '浙江', '121355838518641', '17534664368', '0', 00000000000000060978, 'iY', '2022-11-30 17:20:08', '2022-11-30 17:20:08');
-INSERT INTO `user` VALUES (27, '傅伟诚', 'password', '程语堂', '11111', '四川', '483828899526396', '17792780155', '0', 00000000000000009248, 'MU', '2022-11-30 17:20:09', '2022-11-30 17:20:09');
-INSERT INTO `user` VALUES (28, '高嘉懿', 'password', '任弘文', '11111', '上海', '339859773732371', '15706028442', '0', 00000000000000867141, '9TP', '2022-11-30 17:20:09', '2022-11-30 17:20:09');
-INSERT INTO `user` VALUES (30, '严哲瀚', 'password', '叶擎宇', '11111', '北京', '544941575294526', '13826487172', '0', 00000000000067176927, 'Pj', '2022-11-30 17:20:20', '2022-11-30 17:20:20');
-INSERT INTO `user` VALUES (31, '郝凯瑞', 'password', '马立果', '11111', '吉林', '262854179319773', '17821963792', '0', 00000000000077952980, '2gLUy', '2022-11-30 17:20:21', '2022-11-30 17:20:21');
-INSERT INTO `user` VALUES (32, '曹鑫磊', 'password', '程思源', '11111', '广东', '614258291697214', '17693644756', '0', 00000000000000000269, 'z7S', '2022-11-30 17:20:21', '2022-11-30 17:20:21');
-INSERT INTO `user` VALUES (34, '彭金鑫', 'password', '雷鹏煊', '11111', '广东', '974545732877946', '17072767762', '0', 00000000007012409688, 'lsh', '2022-11-30 17:20:22', '2022-11-30 17:20:22');
-INSERT INTO `user` VALUES (35, '姜瑞霖', 'password', '何立诚', '11111', '海南', '456487169694617', '17147828004', '0', 00000000000056677001, 'tW4', '2022-11-30 17:20:23', '2022-11-30 17:20:23');
-INSERT INTO `user` VALUES (36, '唐晓博', 'password', '韦立果', '11111', '广西壮族自治区', '176986322451631', '14726075467', '0', 00000000000000000002, '5ty', '2022-11-30 17:20:23', '2022-11-30 17:20:23');
-INSERT INTO `user` VALUES (37, '万乐驹', 'password', '贺煜祺', '11111', '河南', '829154877331274', '15378875633', '0', 00000000000046222095, 'y7', '2022-11-30 17:20:24', '2022-11-30 17:20:24');
-INSERT INTO `user` VALUES (38, '曹瑞霖', 'password', '黎楷瑞', '11111', '香港', '443914639538559', '17118439342', '0', 00000000000023668701, 'u4', '2022-11-30 17:20:25', '2022-11-30 17:20:25');
-INSERT INTO `user` VALUES (39, '侯鹤轩', 'password', '杜文博', '11111', '台湾', '251243258899898', '15309996754', '0', 00000000000000001294, 'rudk', '2022-11-30 17:20:25', '2022-11-30 17:20:25');
-INSERT INTO `user` VALUES (40, '彭越泽', 'password', '贾致远', '11111', '海南', '431876728662644', '15380462027', '0', 00000000000336370835, 'e1Px', '2022-11-30 17:20:26', '2022-11-30 17:20:26');
-INSERT INTO `user` VALUES (41, '崔果', 'password', '王嘉懿', '11111', '河北', '949253319326529', '15833045629', '0', 00000000000205986079, 'nFvZ', '2022-11-30 17:20:06', '2022-11-30 17:20:06');
+INSERT INTO `user` VALUES (3001, '1860943831', 'qwer123', '王丽', '410182200106442111', '浙江省杭州市', '2020031512010001', '19157776666', '0', 00000000000020000000, '六级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3002, '1137264205', 'plmk22', '王志明', '410183199802121234', '河南省周口市', '2020031512030003', '19157682677', '0', 00000000000000050000, '二级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3003, '531657052', 'zxcc223', '刘高', '410182154812056443', '浙江省嘉兴市', '2020031512040004', '19157682678', '0', 00000000000000030000, ' 二级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3004, '1193341879', 'zvcg125', '王海', '410182169902054543', '广东省潮汕市', '2020031512050005', '19157682679', '0', 00000000000000001000, ' 一级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3005, '1159393885', 'ghjk454', '王丽丽', '410122200304154212', '广西省玉林市', '2020031512060006', '19157682680', '0', 00000000000000000100, ' 一级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3006, '871464491', 'ljks111', '刘能', '410222194509084512', '山东省威海市', '2020031512070007', '19157682681 ', '0', 00000000000000003000, ' 一级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3007, '858762595', 'bnmd123', '王志宇', '410183145612121245', '山东省聊城市', '2020031512080008', '19157682682 ', '0', 00000000000000050000, ' 二级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3008, '860883450', 'nnnd115', '展亚鹏', '410212201012044622', '山东省临沂市', '2020031512090009', '19157682683 ', '0', 00000000000000120000, ' 三级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3009, '859034105', 'jnik2341', '王佳音', '310182200208124611', '安徽省蚌埠市', '2020031512100010', '18167682644 ', '0', 00000000000000500000, ' 四级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3010, '858484046', 'ijnb2938', '李力', '120182200122120544', '浙江省金华市', '2020031512110011', '15427772645 ', '0', 00000000000000200000, ' 四级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3011, '1123842381', 'oijh111', '王海明', '32514215463255417', '浙江省衢州市 ', '2020031512120012', '15426663612 ', '0', 00000000000000100000, ' 二级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3012, '1172200457', 'nbgh3334', '刘志', '410182200404044444', '广东省佛山市 ', '2020031512130013', '19157682222 ', '0', 00000000000000700000, ' 五级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3013, '214620167', 'ghvb2223', '王洲', '120183200102121548', '广西省南昌市 ', '2020031512140014', '19157682451 ', '0', 00000000000000060000, ' 五级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3014, '747317034', 'penge345', '王平', '146456123504051346', '湖北省武汉市 ', '2020031512150015', '19157684999 ', '0', 00000000000000020000, ' 二级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3015, '859785647', 'liuneng223', '孙立东', '440123200101014562', '湖北省黄冈市 ', '2020031512160016', '19157682222 ', '0', 00000000000000040000, ' 二级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3016, '1182325243', 'pengzh42', '彭朝晖', '483254618402014532', '河北省石家庄市 ', '2020031512170017', '19157662614 ', '0', 00000000000050000000, ' 六级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3017, '1173680817', 'penglu42', '王晓丽', '410199456101021549', '河北省衡水市 ', '2020031512180018', '19157411234 ', '0', 00000000000000005000, ' 一级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3018, '859824029', 'mnuy2423', '张杰', '410165200208541645', '辽宁省葫芦岛市 ', '2020031512190019', '15467821548 ', '0', 00000000000000040000, ' 二级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3019, '1194890021', 'bnmb78', '朱振', '120101200104051245', '河北省唐山市 ', '2020031512200020', '12345214876 ', '0', 00000000000000010000, ' 一级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+INSERT INTO `user` VALUES (3020, '1193374994', 'tyui123', '李力', '410183200510642112', '河南省郑州市 ', '2020031512020002', '19157887777 ', '0', 00000000000000010000, ' 一级用户', '2022-12-29 17:24:19', '2022-12-29 17:24:19');
+
+-- ----------------------------
+-- Table structure for wasd
+-- ----------------------------
+DROP TABLE IF EXISTS `wasd`;
+CREATE TABLE `wasd`  (
+  `sno` varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `sum` int NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of wasd
+-- ----------------------------
+INSERT INTO `wasd` VALUES ('01', 22);
+INSERT INTO `wasd` VALUES ('02', 0);
+
+-- ----------------------------
+-- Table structure for wasdw
+-- ----------------------------
+DROP TABLE IF EXISTS `wasdw`;
+CREATE TABLE `wasdw`  (
+  `sno` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `score` int NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of wasdw
+-- ----------------------------
+INSERT INTO `wasdw` VALUES ('01', 10);
+INSERT INTO `wasdw` VALUES ('03', 20);
+INSERT INTO `wasdw` VALUES ('01', 20);
+
+-- ----------------------------
+-- Table structure for wasdwasd
+-- ----------------------------
+DROP TABLE IF EXISTS `wasdwasd`;
+CREATE TABLE `wasdwasd`  (
+  `sno` varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `score` int NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of wasdwasd
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for whitelist
@@ -379,6 +498,40 @@ delimiter ;;
 CREATE TRIGGER `TRIGGER_ON_UPDATE_user` BEFORE UPDATE ON `user` FOR EACH ROW BEGIN
 	SET new.gmt_update = CURRENT_TIMESTAMP;
 END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table wasdw
+-- ----------------------------
+DROP TRIGGER IF EXISTS `aftertrigger`;
+delimiter ;;
+CREATE TRIGGER `aftertrigger` AFTER INSERT ON `wasdw` FOR EACH ROW begin
+update wasd set sum=sum+1 where sno='01';
+end
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table wasdw
+-- ----------------------------
+DROP TRIGGER IF EXISTS `trigger22`;
+delimiter ;;
+CREATE TRIGGER `trigger22` AFTER INSERT ON `wasdw` FOR EACH ROW begin
+update wasd set sum=sum+new.score where sno=new.sno;
+end
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table wasdwasd
+-- ----------------------------
+DROP TRIGGER IF EXISTS `trigger1`;
+delimiter ;;
+CREATE TRIGGER `trigger1` AFTER INSERT ON `wasdwasd` FOR EACH ROW begin
+update wasd
+set sum=sum+score where sno=NEW.sno;
+end
 ;;
 delimiter ;
 
