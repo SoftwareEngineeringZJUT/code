@@ -6,6 +6,7 @@ import Column from './Column';
 import { Tabs } from 'antd';
 import DemoOrganizationGraph from '../../components/DemoOrganizationGraph';
 import DemoFlowAnalysisGraph from '../../components/DemoFlowAnalysisGraph/DemoFlowAnalysisGraph';
+import ProductForm from './ProductForm';
 
 function reorderList(list, startIndex, endIndex) {
     const result = Array.from(list);
@@ -155,7 +156,7 @@ function ProductConfiguration() {
                         {
                             label: '产品基本信息填写',
                             key: '3',
-                            children: <></>
+                            children: <ProductForm serviceProccess={serviceProcess}/>
                         }
                     ]}
 

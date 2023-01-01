@@ -87,6 +87,7 @@ function OrderManagement() {
             admin_id:userInfo.admin_id,
             account:userInfo.account,
         })).data
+        console.log('order',res)
         SetDataSource(res)
     }
 
