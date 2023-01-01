@@ -33,7 +33,7 @@ public class Product {
     private Integer publisher;
 
     /**
-     *  商品期限
+     *  商品期限,不要求具体时间
      */
     @DateTimeFormat(pattern="yyyy-MM-dd")
     @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
