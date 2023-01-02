@@ -19,7 +19,7 @@ public interface AdminDao {
     Admin getAdminById(Integer admin_id);
 
     // 插入新的admin
-    @Insert("insert into admin(admin_id,account,password,real_name,rank,gmt_create,gmt_update) values(NULL,#{account},#{password},#{real_name},#{rank}.#{gmt_create},#{gmt_update});")
+    @Insert("insert into admin(admin_id,account,`password`,real_name,`rank`,gmt_create,gmt_update) values(NULL,#{account},#{password},#{real_name},#{rank},#{gmt_create},#{gmt_update})")
     void insertAdmin(Admin admin);
 
     // 根据账户account获取密码password

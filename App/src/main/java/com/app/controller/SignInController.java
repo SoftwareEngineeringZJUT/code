@@ -54,6 +54,9 @@ public class SignInController {
             return retJSON;
         }
 
+        _user.setUser_status("None");
+        _user.setLabel("");
+
         userDao.insertUser(_user);
         retJSON = addKeyValue(retJSON , "status" , "APPROVED");
         return retJSON;
@@ -69,13 +72,16 @@ public class SignInController {
 
         Admin admin = adminDao.getAdminByAccount(account);
         User user = userDao.getUserByAccount(account);
+
         if(admin == null && user == null){
             retJSON = addKeyValue(retJSON , "status" , "APPROVED");
 //            adminDao.insertAdmin(_admin);
         }   else{
             retJSON = addKeyValue(retJSON , "status" , "ACCOUNT_DUPLICATED");
+            return retJSON;
         }
 //        System.out.println(retJSON);
+        adminDao.insertAdmin(_admin);
         return retJSON;
     }
 }

@@ -62,6 +62,7 @@ public class ProductController {
 
     final Integer SUPER_ADMIN = 5;
 
+
     @PostMapping("/adminGetProducts")
     public String adminGetProducts(Admin _admin){
         String retJSON = "[]";
@@ -206,7 +207,7 @@ public class ProductController {
      * @return retJSON
      */
     @PostMapping("/purchaseProduct")
-    public String purchaseProduct(User _user,Product _product,double purchaseVolume)
+        public String purchaseProduct(User _user,Product _product,double purchaseVolume)
     {
         String retJSON = "{}";
         User user = userDao.getUserByAccount(_user.getAccount());
