@@ -231,9 +231,18 @@ public class ProductController {
             return retJSON;
         }
 
+        if(product.getPersonal_limit() < purchaseVolume)
+        {
+            //超出每人限额
+            retJSON = addKeyValue(retJSON,"status","Exceed per person limit");
+        }
+        else if(product.getDaily_limit() < purchaseVolume - getBuy(user,product.getProduct_id()))
+        {
+            //超出每日限额
+            retJSON = addKeyValue(retJSON,"status","Exceed per daily limit");
 
-        //TODO: 可能需要加入判断是否超出每日限额、每人限额啥的，后续待改
-        if(product.getStock() - product.getSaled() < purchaseVolume)
+        }
+        else if(product.getStock() - product.getSaled() < purchaseVolume)
         {
             //判断能否支付
             //产品余量不足
@@ -307,7 +316,26 @@ public class ProductController {
         return retJSON;
     }
 
+    //得到用户关于某个产品的购买量
+    private double getBuy(User user , Integer product_id)
+    {
+        List<Order> orderList = orderDao.GetByUserId(user.getUid());
+        Map<Integer , Double> productmap = new HashMap<>();
+        for(Order order:orderList){
+            Integer id = order.getProduct_id();
+            Double num = order.getAmount();
+            Integer state = order.getState();
+            // state = 0 买进
+            if(state == 0 && productmap.get(id) != null){
+                num = productmap.get(id) + num;
+                productmap.remove(id);
+            }
 
+            productmap.put(id , num);
+        }
+
+        return productmap.get(product_id);
+    }
     private double getHold(User user , Integer product_id)
     {
         List<Order> orderList = orderDao.GetByUserId(user.getUid());
