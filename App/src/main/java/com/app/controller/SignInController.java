@@ -78,6 +78,7 @@ public class SignInController {
             retJSON = addKeyValue(retJSON , "status" , "ACCOUNT_DUPLICATED");
         }
 //        System.out.println(retJSON);
+        adminDao.insertAdmin(_admin);
         return retJSON;
     }
 }
