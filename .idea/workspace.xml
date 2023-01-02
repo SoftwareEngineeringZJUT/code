@@ -4,12 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0693ab41-aa7f-4c49-ae66-60de2471c93d" name="变更" comment="登录接口">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0693ab41-aa7f-4c49-ae66-60de2471c93d" name="变更" comment="服务">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/src/main/java/com/app/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/app/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/app/dao/BlackListDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/app/dao/BlackListDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/app/dao/WhiteListDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/app/dao/WhiteListDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/App-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/AppApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/config/Myconfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/controller/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/core/util/Result.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/core/util/ResultCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/core/util/ResultUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/dao/AdminDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/dao/BlackListDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/dao/OrderDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/dao/ProductDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/dao/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/dao/WhiteListDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/domain/Admin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/domain/BlackList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/domain/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/domain/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/domain/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/com/app/domain/WhiteList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/classes/softwaredb.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/target/test-classes/com/app/AppApplicationTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +175,14 @@
       <workItem from="1670556226646" duration="2530000" />
       <workItem from="1671283066064" duration="714000" />
       <workItem from="1671356114956" duration="1644000" />
-      <workItem from="1671859427507" duration="2024000" />
+      <workItem from="1671859427507" duration="7320000" />
+      <workItem from="1672299227505" duration="3876000" />
+      <workItem from="1672307636395" duration="3529000" />
+      <workItem from="1672398020259" duration="639000" />
+      <workItem from="1672485986277" duration="4911000" />
+      <workItem from="1672495272959" duration="1073000" />
+      <workItem from="1672640288706" duration="857000" />
+      <workItem from="1672657187756" duration="3141000" />
     </task>
     <task id="LOCAL-00001" summary="后端">
       <created>1669881863888</created>
@@ -249,7 +275,42 @@
       <option name="project" value="LOCAL" />
       <updated>1670427268093</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="服务">
+      <created>1671861490647</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1671861490647</updated>
+    </task>
+    <task id="LOCAL-00015" summary="服务">
+      <created>1671862457201</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1671862457201</updated>
+    </task>
+    <task id="LOCAL-00016" summary="服务">
+      <created>1671864477388</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1671864477388</updated>
+    </task>
+    <task id="LOCAL-00017" summary="服务">
+      <created>1671864762625</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1671864762625</updated>
+    </task>
+    <task id="LOCAL-00018" summary="执行原子流程">
+      <created>1672301789029</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1672301789030</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +345,8 @@
     <MESSAGE value="变更" />
     <MESSAGE value="domain加上JSONField注解" />
     <MESSAGE value="登录接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="登录接口" />
+    <MESSAGE value="服务" />
+    <MESSAGE value="执行原子流程" />
+    <option name="LAST_COMMIT_MESSAGE" value="执行原子流程" />
   </component>
 </project>
