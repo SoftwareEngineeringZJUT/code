@@ -55,6 +55,7 @@ public class SignInController {
         }
 
         _user.setUser_status("None");
+        _user.setLabel("");
 
         userDao.insertUser(_user);
         retJSON = addKeyValue(retJSON , "status" , "APPROVED");
