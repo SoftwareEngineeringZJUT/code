@@ -71,11 +71,13 @@ public class SignInController {
 
         Admin admin = adminDao.getAdminByAccount(account);
         User user = userDao.getUserByAccount(account);
+
         if(admin == null && user == null){
             retJSON = addKeyValue(retJSON , "status" , "APPROVED");
 //            adminDao.insertAdmin(_admin);
         }   else{
             retJSON = addKeyValue(retJSON , "status" , "ACCOUNT_DUPLICATED");
+            return retJSON;
         }
 //        System.out.println(retJSON);
         adminDao.insertAdmin(_admin);
