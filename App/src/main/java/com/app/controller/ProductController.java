@@ -270,8 +270,10 @@ public class ProductController {
             //生成订单
             Order order = new Order(product.getProduct_id(), user.getUid(),purchaseVolume,0,new Date());
             orderDao.InsertOrder(order);
+
             //产品库存减少
-            product.setSaled(product.getSaled() - purchaseVolume);
+            product.setSaled(product.getSaled() + purchaseVolume);
+            product.setStock(product.getStock() - purchaseVolume);
             productDao.UpdateProductInfo(product);
             retJSON = addKeyValue(retJSON , "status" , "APPROVED");
 
