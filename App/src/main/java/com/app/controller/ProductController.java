@@ -380,12 +380,12 @@ public class ProductController {
                 num = productmap.get(id) + num;
                 productmap.remove(id);
             }
-
             productmap.put(id , num);
         }
 
-        return productmap.get(product_id);
+        return (productmap.get(product_id) == null) ? 0 : productmap.get(product_id);
     }
+
     private double getHold(User user , Integer product_id)
     {
         List<Order> orderList = orderDao.GetByUserId(user.getUid());
@@ -407,7 +407,7 @@ public class ProductController {
             productmap.put(id , num);
         }
 
-        return productmap.get(product_id);
+        return (productmap.get(product_id) == null) ? 0 : productmap.get(product_id);
     }
 
 
