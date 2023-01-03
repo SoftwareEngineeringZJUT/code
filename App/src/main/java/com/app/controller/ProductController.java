@@ -220,6 +220,10 @@ public class ProductController {
         String retJSON = "{}";
         User user = userDao.getUserByAccount(_user.getAccount());
         Product product = productDao.getProductById(_product.getProduct_id());
+
+//        System.out.println(user);
+//        System.out.println(product);
+
         //用户不存在
         if(user == null)
         {
@@ -227,9 +231,14 @@ public class ProductController {
             return retJSON;
         }
         //产品不存在或不再售卖
-        if (product == null || product.getOnsale() == 0)
+        if (product == null )
         {
             retJSON = addKeyValue(retJSON , "status" , "PRODUCT_NOT_FOUND");
+            return retJSON;
+        }
+
+        if(product.getOnsale() == 0){
+            retJSON = addKeyValue(retJSON , "status" , "PRODUCT_NOT_ONSALE");
             return retJSON;
         }
 
