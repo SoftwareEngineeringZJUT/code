@@ -76,14 +76,18 @@ public class UserInfoController {
         // 存在性检验
         User user = userDao.getUserByUid(_user.getUid());
         if(user == null){
-            retJSON = addKeyValue(retJSON , "status" , "ADMIN_NOT_FOUND");
+            retJSON = addKeyValue(retJSON , "status" , "USER_NOT_FOUND");
             return retJSON;
         }
 
         // 更新账户信息
         String newaccount = _user.getAccount();
         user = userDao.getUserByAccount(newaccount);
-        if(user != null && user.getUid() != _user.getUid() && user.getAccount() != _user.getAccount()){
+
+//        System.out.println(_user);
+//        System.out.println(user);
+
+        if(user != null && !user.getUid().equals(_user.getUid())  && !user.getAccount().equals(_user.getAccount()) ){
             retJSON = addKeyValue(retJSON , "status" , "ACCOUNT_DUPLICATED");
             return retJSON;
         }

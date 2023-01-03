@@ -77,7 +77,7 @@ public class AdminInfoController {
         // 更新账户信息
         String newaccount = _admin.getAccount();
         admin = adminDao.getAdminByAccount(newaccount);
-        if(admin != null && _admin.getAdmin_id() != admin.getAdmin_id() &&admin.getAdmin_id() != _admin.getAdmin_id()){
+        if(admin != null && !_admin.getAdmin_id().equals(admin.getAdmin_id()) && !admin.getAdmin_id().equals(_admin.getAdmin_id())  ){
             retJSON = addKeyValue(retJSON , "status" , "ACCOUNT_DUPLICATED");
             return retJSON;
         }

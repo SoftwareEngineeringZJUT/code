@@ -157,10 +157,17 @@ public class ProductController {
         if(admin == null)
         {
             retJSON = addKeyValue(retJSON , "status" , "ADMIN_NOT_FOUND");
+            return retJSON;
         }
         else
         {
             Product product = productDao.getProductById(_product.getProduct_id());
+
+            if(product == null){
+                retJSON = addKeyValue(retJSON , "status" , "PRODUCT_NOT_FOUND");
+                return retJSON;
+            }
+
 //            System.out.println(_product);
             //修改基本信息
             productDao.UpdateProductInfo(_product);
