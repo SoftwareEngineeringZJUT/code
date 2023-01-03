@@ -3,6 +3,7 @@ package com.app.controller;
 import com.alibaba.fastjson.JSON;
 import com.app.dao.*;
 import com.app.domain.*;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -276,6 +277,47 @@ public class ProductController {
 
         }
         return retJSON;
+    }
+
+    /**
+     * 自动结算
+     */
+    @Scheduled(cron = "0 0 0")
+    public void settleProduct()
+    {
+        Date now = new Date();
+        List<Product> productList = productDao.getAllOnsale();
+        //得到所有上线的产品
+        for(Product product : productList)
+        {
+            //判定为过期产品
+            if(product.getExpire().compareTo(now) > 0)
+            {
+                //得到相关订单
+                List<Order> orderList = orderDao.GetByProductId(product.getProduct_id());
+                //当交易方式为买入时计算利息
+                for(Order order : orderList)
+                {
+                    if(order.getState() == 0)
+                    {
+                        //计算利息，用产品期限减去支付时间
+                        double months = (int)(product.getExpire().getTime() - now.getTime()) / (1000 * 60 * 60 * 24 * 30);
+                        Double interest = product.getIncrement() * order.getAmount() * months / 12;
+
+                        //用户信息
+                        User user = userDao.getUserByUid(order.getUser_id());
+
+                        //用户账户余额变动
+                        userDao.updateBalanceByUid(order.getUser_id(),user.getBalance() + interest);
+                    }
+
+                }
+
+                //产品下线
+                product.setOnsale(0);
+                productDao.UpdateProductInfo(product);
+            }
+        }
     }
 
     /**

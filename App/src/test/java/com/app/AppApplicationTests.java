@@ -22,10 +22,13 @@ class AppApplicationTests {
     @Test
     void contextLoads() {
         Product product = new Product();
-        List<Product> productArrayList = new ArrayList<>();
-        productArrayList = productDao.getProductByPublisher(2);
-
-        System.out.println(productArrayList);
+        Product productById = productDao.getProductById(2001);
+        System.out.println(productById.getExpire().getClass());
+        System.out.println(productById.getExpire());
+//        List<Product> productArrayList = new ArrayList<>();
+//        productArrayList = productDao.getProductByPublisher(2);
+//
+//        System.out.println(productArrayList);
     }
 
 }
