@@ -27,12 +27,21 @@ function Home() {
         message.success(`welcome ${name}`)
     };
 
+    const level = {
+        'level_1':'0 - 10000',
+        'level_2':'10000 - 100000',
+        'level_3':'100000 - 1000000',
+        'level_4':'1000000 - 5000000',
+        'level_5':'5000000 - 10000000',
+        'level_6':'10000000 +'
+    }
     async function getUserAssetDistribution() {
         let res = (await getData('/statistics/getUserAssetDistribution', {})).data;
+        console.log(res)
         let newChartData = []
         for (let key in res) {
             newChartData.push({
-                type: key,
+                type: level[key],
                 value: res[key],
             })
         }

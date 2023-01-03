@@ -1,4 +1,4 @@
-import { Button, Popconfirm } from 'antd';
+import { Button, Popconfirm,message } from 'antd';
 import React, { useState, useEffect } from 'react'
 import EditableTable from '../../components/EditableTable'
 import { getData } from '../../http/getData';
@@ -6,6 +6,15 @@ import { getData } from '../../http/getData';
 function UserManagement() {
 
     const [dataSource, setdataSource] = useState([])
+
+    const success = () => {
+        message.success('修改成功');
+    };
+    const error = () => {
+        message.error('修改失败');
+    };
+
+    
 
     async function getUser() {
         let res = (await getData('/userInfo/getUser', {})).data
@@ -24,39 +33,27 @@ function UserManagement() {
             uid:userInfo.uid,
             account:userInfo.account,
         })).data
+        console.log(res)
+        const newData = dataSource.filter((item) => item.key !== userInfo.key);
+        setdataSource(newData);
     }
 
-    const handleDelete = (key) => {
-        const newData = dataSource.filter((item) => item.key !== key);
-        setdataSource(newData);
+    const handleDelete = (record) => {
+        deleteUser(record)
     };
  
     const columns = [
         // {
-        //     title: 'index',
-        //     dataIndex: 'key',
-        //     width: 100,
-        //     editable: false,
-        //     fixed: 'left',
-        //     rules: [
-        //         {
-        //             required: true,
-        //             message: `lalala is required.`,
-        //         },
-        //     ]
-        // },
-        // {
         //     title: 'uid',
         //     dataIndex: 'uid',
         //     width:100,
-        //     editable: false,
+        //     editable: true,
         //     rules: [
         //         {
         //             required: true,
         //             message: `lalala is required.`,
         //         },
         //     ]
-
         // },
         // {
         //     title:'user_status',
@@ -75,8 +72,20 @@ function UserManagement() {
             title:'account',
             dataIndex:'account',
             width:150,
-            editable: false,
+            editable: true,
             fixed:'left',
+            rules: [
+                {
+                    required: true,
+                    message: `lalala is required.`,
+                },
+            ]
+        },
+        {
+            title:'password',
+            dataIndex:'password',
+            width:150,
+            editable: true,
             rules: [
                 {
                     required: true,
@@ -186,7 +195,7 @@ function UserManagement() {
             width:200,
             render: (_, record) =>
               dataSource.length >= 1 ? (
-                <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
+                <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record)}>
                   <a>Delete</a>
                 </Popconfirm>
               ) : null,
@@ -208,6 +217,12 @@ function UserManagement() {
             balance:userInfo.balance,
             label:userInfo.label,
         })).data
+        if (res.status === 'APPROVED') {
+            success()
+        }
+        else {
+            error()
+        }
         console.log(res)
     }
 
@@ -218,14 +233,22 @@ function UserManagement() {
 
     return (
         <>
-            <Button onClick={() => {
+            {/* <Button onClick={() => {
                 setdataSource([...structuredClone(dataSource), {
                     key: dataSource.length,
-                    name: 'add',
-                    age: 'add',
-                    address: 'add',
+                    uid: 3024,
+                    account: "default",
+                    password: "default",
+                    real_name: "default",
+                    id_card: "",
+                    address: "default",
+                    bank_card: "",
+                    phone: "default",
+                    user_status: "None",
+                    balance: 0,
+                    label:"二级用户"
                 }])
-            }}>add data</Button>
+            }}>add data</Button> */}
 
             <EditableTable
                 autoMove={true}

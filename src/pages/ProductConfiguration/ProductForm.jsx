@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Form, Input, DatePicker, Button, Space, Tooltip, Select, Typography, Switch } from 'antd'
+import { Form, Input, DatePicker, Button,  Select, Switch, message } from 'antd'
 import { postData } from '../../http/getData';
 
 const { Option } = Select
@@ -12,6 +12,13 @@ function ProductForm(props) {
         console.log(values)
         generateProduct(values)
     }
+
+    const success = () => {
+        message.success('添加成功');
+      };
+      const error = () => {
+        message.error('添加失败');
+      };
 
     async function generateProduct(productInfo){
         let date = productInfo.expire.format('YYYY-MM-DD')
@@ -28,6 +35,7 @@ function ProductForm(props) {
             daily_limit:productInfo.daily_limit,
             stock:productInfo.stock,
             saled:productInfo.saled,
+            risk:productInfo.risk,
             settlement_type:productInfo.settlement_type,
             onsale:productInfo.onsale? 1:0,
             location:productInfo.location,
@@ -35,6 +43,12 @@ function ProductForm(props) {
             service_process:proccessL,
         })).data
 
+        if(res.status === 'APPROVED'){
+            success()
+        }
+        else {
+            error()
+        }
         console.log('res',res)
     }
 

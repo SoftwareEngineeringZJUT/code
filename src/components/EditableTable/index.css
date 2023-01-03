@@ -14,9 +14,9 @@
     z-index: 1000;
 }
 
-.left-shift-box:hover {
+/* .left-shift-box:hover {
     background-color: rgba(74, 50, 228,.5);
-}
+} */
 
 .right-shift-box {
     position: absolute;
@@ -28,6 +28,6 @@
     z-index: 1000;
 }
 
-.right-shift-box:hover {
+/* .right-shift-box:hover {
     background-color: rgba(74, 50, 228,.5);
-}
+} */
