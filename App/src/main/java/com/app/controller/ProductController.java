@@ -443,9 +443,15 @@ public class ProductController {
                     ret = ret.concat("不在白名单中;");
             }
             // 地域购买控制
-            if(id.equals("3")){
+            if(id.equals("3")) {
+                if(!userLocCheck(user,product)){
+                    ret = ret.concat("用户地区限制;");
+                }
+            }
+            // 标签控制
+            if(id.equals("4")){
                 if(!userLabelCheck(user , product , 2))
-                    ret = ret.concat("地域购买限制;");
+                    ret = ret.concat("用户标签不符合;");
             }
             // 证件审查
             if(id.equals("8")){
@@ -519,9 +525,8 @@ public class ProductController {
     private Boolean userLocCheck(User user , Product product){
 
         //获取产品的地区
-        String loc;
-        loc = product.getLocation();
-        if(user.getAddress().equals(loc)) return true;
+        String loc = product.getLocation();
+        if(loc==null || user.getAddress().equals(loc)) return true;
         return false;
     }
 
@@ -538,6 +543,9 @@ public class ProductController {
 
         String[] userlabelist = user.getLabel().split(";");
         String[] needlabelist = product.getService_process().split(";");
+
+        if(needlabelist == null) return true;
+
         HashSet<String> labels = new HashSet<>();
         for(String la:needlabelist) labels.add(la);
 
