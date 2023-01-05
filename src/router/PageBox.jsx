@@ -11,6 +11,7 @@ import PersonalCenter from '../pages/PersonalCenter';
 import OrderManagement from '../pages/OrderManagement/OrderManagement';
 import ProductStore from '../pages/ProductStore/ProductStore';
 import UserOrder from '../pages/UserOrder/UserOrder';
+import UserCenter from '../pages/UserCenter/UserCenter';
 
 const { Content } = Layout;
 
@@ -29,6 +30,7 @@ function PageBox() {
                         <Route path='/OrderManagement' element={<OrderManagement/>}></Route>
                         <Route path='/ProductStore' element={<ProductStore/>}></Route>
                         <Route path='/UserOrder' element={<UserOrder/>}></Route>
+                        <Route path='UserCenter' element={<UserCenter/>}></Route>
                         <Route path='/*' element={<NotFound />} />
                     </Routes>
                 </div>

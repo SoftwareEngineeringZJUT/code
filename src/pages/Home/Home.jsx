@@ -194,7 +194,7 @@ function Home() {
                 {/* <DemoChart /> */}
             </div>
             {/* <DemoLine /> */}
-            <Pie {...config}/>
+            {userInfo.role === 'admin' ? <Pie {...config}/>:null}
         </>
     )
 }

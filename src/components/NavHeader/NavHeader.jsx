@@ -27,7 +27,7 @@ function NavHeader() {
         {label:'首页', key:'Home'},
         {label:'产品商城', key:'ProductStore'},
         {label:'订单管理', key:'UserOrder'},
-        {label:'个人中心', key:'PersonalCenter'},
+        {label:'个人中心', key:'UserCenter'},
     ]
 
     const handelClick = ({item, key})=>{

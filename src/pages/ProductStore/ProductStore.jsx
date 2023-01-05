@@ -73,14 +73,14 @@ function ProductStore() {
     const buysuccess = () => {
         message.success('购买成功');
     };
-    const buyerror = () => {
-        message.error('购买失败');
+    const buyerror = (err) => {
+        message.error(err);
     };
     const salesuccess = () => {
         message.success('卖出成功');
     };
-    const saleerror = () => {
-        message.error('卖出失败');
+    const saleerror = (err) => {
+        message.error(err);
     };
 
     async function buyProducts(values) {
@@ -93,7 +93,7 @@ function ProductStore() {
             buysuccess()
         }
         else {
-            buyerror()
+            buyerror(res.status)
         }
         console.log(res)
     }
